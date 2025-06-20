@@ -19,7 +19,13 @@ const navItems = [
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const isActive = isMounted && pathname === href;
 
   return (
     <Link
@@ -35,12 +41,6 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 };
 
 const AppHeader = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
     <header className="bg-background text-foreground shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -58,18 +58,10 @@ const AppHeader = () => {
         </Link>
         
         <nav className="hidden md:flex items-center space-x-8">
-          {isMounted ? navItems.map((item) => (
+          {navItems.map((item) => (
             <NavLink key={item.href} href={item.href}>
               {item.label}
             </NavLink>
-          )) : navItems.map((item) => (
-            <Link
-                key={item.href}
-                href={item.href}
-                className="text-base font-medium transition-colors hover:text-primary text-foreground/70"
-            >
-                {item.label}
-            </Link>
           ))}
         </nav>
 
