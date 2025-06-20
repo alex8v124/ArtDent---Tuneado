@@ -9,7 +9,7 @@ const ServiceShowcase: React.FC = () => {
         <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-10 text-primary">
           Nuestros Servicios
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
