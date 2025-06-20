@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           <DialogTrigger asChild>
             <Button variant="outline" className="w-full hover:bg-accent hover:text-accent-foreground transition-colors">Leer Más</Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-4xl p-0">
+          <DialogContent className="sm:max-w-5xl p-0">
             <ScrollArea className="max-h-[90vh]">
               <div className="p-6 md:p-8">
                 <DialogHeader className="mb-6">
