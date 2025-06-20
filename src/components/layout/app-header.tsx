@@ -28,7 +28,7 @@ const AppHeader = () => {
           <Link href="/reservar-cita" className="text-sm font-medium bg-accent text-accent-foreground hover:bg-accent/90 transition-colors px-4 py-2 rounded-md shadow-sm">
             Reservar Cita
           </Link>
-          <Button asChild variant="outline" className="text-sm font-medium border-primary-foreground/50 hover:bg-primary-foreground/10 hover:text-accent transition-colors">
+          <Button asChild className="text-sm font-medium bg-accent text-accent-foreground hover:bg-accent/90 transition-colors px-4 py-2 rounded-md shadow-sm">
             <Link href="/admin/login">
               <LogIn className="mr-2 h-4 w-4" />
               Iniciar Sesión
