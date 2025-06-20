@@ -4,7 +4,7 @@ import ToothIcon from '@/components/icons/tooth-icon';
 
 const AppHeader = () => {
   return (
-    <header className="bg-primary text-primary-foreground shadow-md">
+    <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <ToothIcon className="h-8 w-8 text-primary-foreground group-hover:text-accent transition-colors duration-300" />
@@ -12,9 +12,18 @@ const AppHeader = () => {
             Centro de Información ArtDent
           </h1>
         </Link>
-        <nav>
-          {/* Los enlaces de navegación se pueden agregar aquí si es necesario */}
+        <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
+          <Link href="/servicios" className="text-sm font-medium hover:text-accent transition-colors px-3 py-2 rounded-md">
+            Servicios
+          </Link>
+          <Link href="/faq" className="text-sm font-medium hover:text-accent transition-colors px-3 py-2 rounded-md">
+            Preguntas Frecuentes
+          </Link>
+          <Link href="/asistente-ia" className="text-sm font-medium hover:text-accent transition-colors px-3 py-2 rounded-md">
+            Asistente IA
+          </Link>
         </nav>
+        {/* Aquí se podría agregar un menú hamburguesa para móviles si se desea más adelante */}
       </div>
     </header>
   );
