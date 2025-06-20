@@ -25,8 +25,8 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
     <Link
       href={href}
       className={cn(
-        "text-sm font-medium transition-colors hover:text-primary",
-        isActive ? "text-primary font-semibold" : "text-foreground/60"
+        "text-base font-medium transition-colors hover:text-primary",
+        isActive ? "text-primary font-semibold" : "text-foreground/70"
       )}
     >
       {children}
@@ -51,7 +51,7 @@ const AppHeader = () => {
           </h1>
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <NavLink key={item.href} href={item.href}>
               {item.label}
