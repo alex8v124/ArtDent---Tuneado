@@ -12,7 +12,7 @@ const AppHeader = () => {
             Centro de Información ArtDent
           </h1>
         </Link>
-        <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
+        <nav className="hidden md:flex items-center space-x-2 md:space-x-3">
           <Link href="/servicios" className="text-sm font-medium hover:text-accent transition-colors px-3 py-2 rounded-md">
             Servicios
           </Link>
@@ -21,6 +21,9 @@ const AppHeader = () => {
           </Link>
           <Link href="/asistente-ia" className="text-sm font-medium hover:text-accent transition-colors px-3 py-2 rounded-md">
             Asistente IA
+          </Link>
+          <Link href="/reservar-cita" className="text-sm font-medium bg-accent text-accent-foreground hover:bg-accent/90 transition-colors px-4 py-2 rounded-md shadow-sm">
+            Reservar Cita
           </Link>
         </nav>
         {/* Aquí se podría agregar un menú hamburguesa para móviles si se desea más adelante */}

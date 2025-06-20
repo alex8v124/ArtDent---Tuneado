@@ -8,6 +8,7 @@ export interface Service {
   icon: React.ReactNode;
   image?: string; // Optional image URL for detail view
   dataAiHint?: string; // Optional hint for AI image generation
+  price: number; // Price of the service
 }
 
 export interface FAQItem {

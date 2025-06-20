@@ -10,7 +10,8 @@ export const services: Service[] = [
     longDescription: 'Nuestras revisiones generales incluyen un examen completo de sus dientes, encías y boca, junto con limpieza profesional y detección de cáncer oral. Nos enfocamos en el cuidado preventivo para ayudarle a mantener una salud bucal óptima y detectar cualquier problema potencial de manera temprana.',
     icon: <Stethoscope className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "revisión dental"
+    dataAiHint: "revisión dental",
+    price: 50,
   },
   {
     id: 'teeth-cleaning',
@@ -19,7 +20,8 @@ export const services: Service[] = [
     longDescription: 'Nuestro servicio de limpieza dental profesional elimina la placa, el sarro y las manchas que el cepillado y el hilo dental habituales no pueden alcanzar. Esto ayuda a prevenir la enfermedad de las encías, las caries y deja sus dientes con una sensación fresca y un aspecto más brillante.',
     icon: <Sparkles className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "limpieza dental"
+    dataAiHint: "limpieza dental",
+    price: 75,
   },
   {
     id: 'cavity-fillings',
@@ -28,7 +30,8 @@ export const services: Service[] = [
     longDescription: 'Ofrecemos varios tipos de empastes, incluidos los empastes de composite del color del diente, para restaurar los dientes afectados por caries. Nuestro objetivo es proporcionar restauraciones duraderas y estéticamente agradables que se integren perfectamente con sus dientes naturales.',
     icon: <SmilePlus className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "empaste dental"
+    dataAiHint: "empaste dental",
+    price: 120,
   },
   {
     id: 'root-canal-therapy',
@@ -37,7 +40,8 @@ export const services: Service[] = [
     longDescription: 'El tratamiento de conducto es un procedimiento para tratar la infección en el centro de un diente (el sistema de conductos radiculares). Este tratamiento puede salvar su diente natural y evitar la necesidad de extracción. Utilizamos técnicas modernas para garantizar que el procedimiento sea lo más cómodo posible.',
     icon: <Activity className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "conducto radicular"
+    dataAiHint: "conducto radicular",
+    price: 300,
   },
   {
     id: 'dental-crowns',
@@ -46,7 +50,8 @@ export const services: Service[] = [
     longDescription: 'Las coronas dentales son fundas hechas a medida que cubren un diente dañado o debilitado. Restauran la forma, el tamaño, la resistencia y la apariencia del diente. Las coronas pueden estar hechas de diversos materiales, incluyendo porcelana y cerámica, para que coincidan con sus dientes naturales.',
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "corona dental"
+    dataAiHint: "corona dental",
+    price: 450,
   },
   {
     id: 'dental-implants',
@@ -55,6 +60,7 @@ export const services: Service[] = [
     longDescription: 'Los implantes dentales son una solución de vanguardia para reemplazar los dientes perdidos. Consisten en un poste de titanio que se integra con el hueso maxilar, proporcionando una base sólida para un diente de reemplazo o un puente. Los implantes se ven, se sienten y funcionan como dientes naturales.',
     icon: <Anchor className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "implante dental"
+    dataAiHint: "implante dental",
+    price: 1200,
   },
 ];
