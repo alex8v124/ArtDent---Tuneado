@@ -47,7 +47,7 @@ export const services: Service[] = [
     id: 'dental-crowns',
     title: 'Coronas Dentales',
     shortDescription: 'Fundas colocadas sobre dientes dañados para restaurar forma, tamaño y resistencia.',
-    longDescription: 'Las coronas dentales son fundas hechas a medida que cubren un diente dañado o debilitado. Restauran la forma, el tamaño, la resistencia y la apariencia del diente. Las coronas pueden estar hechas de diversos materiales, incluyendo porcelana y cerámica, para que coincidan con sus dientes naturales.',
+    longDescription: 'Las coronas dentales son fundas hechas a medida que cubren un diente dañado o debilitado. Restauran la forma, el tamaño, la resistencia y la apariencia del diente. Las corononas pueden estar hechas de diversos materiales, incluyendo porcelana y cerámica, para que coincidan con sus dientes naturales.',
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
     dataAiHint: "corona dental",

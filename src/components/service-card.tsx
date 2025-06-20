@@ -56,8 +56,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                     />
                   </div>
                 )}
-                <DialogDescription className="text-base text-foreground leading-relaxed">
-                  {service.longDescription}
+                <DialogDescription asChild>
+                  <div className="text-base text-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: service.longDescription.replace(/\n/g, '<br />') }} />
                 </DialogDescription>
                 <DialogFooter className="mt-6 sm:justify-end">
                    {/* Intencionalmente vacío o agregar un botón de cierre si DialogClose no es suficiente */}
