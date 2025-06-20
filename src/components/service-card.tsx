@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           <DialogTrigger asChild>
             <Button variant="outline" className="w-full hover:bg-accent hover:text-accent-foreground transition-colors">Leer Más</Button>
           </DialogTrigger>
-          <DialogContent className="p-0 w-11/12 max-w-7xl">
+          <DialogContent className="sm:max-w-4xl p-0">
             <ScrollArea className="max-h-[90vh]">
               <div className="p-6 md:p-8">
                 <DialogHeader className="mb-6">
@@ -49,7 +49,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                 
                 {service.image && (
                   <div className="my-6 flex justify-center">
-                    <div className="w-full max-w-3xl rounded-lg overflow-hidden shadow-lg border">
+                    <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-lg border">
                       <Image 
                         src={service.image} 
                         alt={service.title} 
