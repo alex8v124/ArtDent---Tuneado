@@ -39,6 +39,14 @@ const prompt = ai.definePrompt({
 
   Pregunta: {{{question}}}
   `,
+  config: {
+    safetySettings: [
+      { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
+    ],
+  },
 });
 
 const answerQuestionFromWebsiteFlow = ai.defineFlow(
@@ -48,7 +56,18 @@ const answerQuestionFromWebsiteFlow = ai.defineFlow(
     outputSchema: AnswerQuestionFromWebsiteOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
-    return output!;
+    const response = await prompt(input);
+    if (response.output === null) {
+      let reason = "Razón desconocida para una salida nula.";
+      if (response.candidates.length > 0 && response.candidates[0].finishReason) {
+        reason = `La generación de respuesta del modelo falló. Razón: ${response.candidates[0].finishReason}.`;
+        if (response.candidates[0].finishMessage) {
+          reason += ` Mensaje: ${response.candidates[0].finishMessage}.`;
+        }
+      }
+      console.error("La salida de la respuesta de IA fue nula.", reason, "Respuesta completa:", JSON.stringify(response, null, 2));
+      throw new Error('El modelo de IA no generó una respuesta válida. Esto podría deberse a filtros de seguridad o a la incapacidad de formatear la respuesta.');
+    }
+    return response.output;
   }
 );
