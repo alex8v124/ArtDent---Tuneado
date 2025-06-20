@@ -53,8 +53,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                       <Image 
                         src={service.image} 
                         alt={service.title} 
-                        width={400} 
-                        height={100} 
+                        width={600} 
+                        height={200} 
                         className="w-full h-auto"
                         data-ai-hint={service.dataAiHint || "servicio dental"}
                       />
