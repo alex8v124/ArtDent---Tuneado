@@ -15,7 +15,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, User, Loader2 } from 'lucide-react';
-import ToothIcon from '@/components/icons/tooth-icon';
+import ToothIcon from '@/components/img/tooth-icon';
 import Link from 'next/link';
 
 const loginSchema = z.object({

@@ -18,7 +18,7 @@ import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { services } from '@/data/services';
 import type { Service } from '@/types';
-import PayPalLogo from '@/components/icons/paypal-logo';
+import PayPalLogo from '@/components/img/paypal-logo';
 
 const appointmentFormSchema = z.object({
   dni: z.string().min(8, "El DNI debe tener al menos 8 caracteres.").max(15, "El DNI no debe exceder los 15 caracteres."),

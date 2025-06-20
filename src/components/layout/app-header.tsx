@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import ToothIcon from '@/components/icons/tooth-icon';
+import ToothIcon from '@/components/img/tooth-icon';
 import { Button } from '@/components/ui/button';
 import { LogIn } from 'lucide-react';
 
