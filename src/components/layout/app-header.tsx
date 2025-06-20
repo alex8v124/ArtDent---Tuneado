@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { LogIn } from 'lucide-react';
-import ToothIcon from '@/components/img/tooth-icon';
+import artDentLogo from '@/components/img/img_logo.png';
 import { cn } from '@/lib/utils';
 
 const navItems = [
@@ -38,7 +39,13 @@ const AppHeader = () => {
     <header className="bg-background text-foreground shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <ToothIcon className="h-10 w-10 group-hover:scale-110 transition-transform duration-300" />
+          <Image 
+            src={artDentLogo} 
+            alt="ArtDent Logo" 
+            width={40} 
+            height={40} 
+            className="group-hover:scale-110 transition-transform duration-300"
+          />
           <h1 className="text-2xl font-headline font-bold text-foreground group-hover:text-primary transition-colors duration-300">
             ArtDent
           </h1>
