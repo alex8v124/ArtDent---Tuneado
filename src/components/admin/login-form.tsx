@@ -15,7 +15,6 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, User, Loader2 } from 'lucide-react';
-import ToothIcon from '@/components/img/tooth-icon';
 import Link from 'next/link';
 
 const loginSchema = z.object({
@@ -73,7 +72,7 @@ const LoginForm: React.FC = () => {
         <Card className="w-full max-w-md mx-auto shadow-none border-none bg-transparent">
           <CardHeader className="text-center mb-6">
             <div className="flex justify-center items-center mb-4">
-              <ToothIcon className="h-12 w-12 text-primary" />
+              <Image src="/img_logo.png" alt="ArtDent Logo" width={48} height={48} />
               <h1 className="text-4xl font-headline font-bold text-primary ml-2">ArtDent</h1>
             </div>
             <h2 className="text-2xl font-semibold text-foreground">Inicia Sesión</h2>
@@ -158,7 +157,7 @@ const LoginForm: React.FC = () => {
                       </FormItem>
                     )}
                   />
-                  <Link href="#" className="font-medium text-primary hover:underline">
+                  <Link href="/admin/forgot-password" className="font-medium text-primary hover:underline">
                     Olvidé mi contraseña
                   </Link>
                 </div>
