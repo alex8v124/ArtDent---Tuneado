@@ -15,7 +15,7 @@ import { Bot, Loader2, Send, User } from 'lucide-react';
 import { ScrollArea } from './ui/scroll-area';
 
 const formSchema = z.object({
-  question: z.string().min(5, { message: "Question must be at least 5 characters long." }).max(200, { message: "Question must be at most 200 characters long." }),
+  question: z.string().min(5, { message: "La pregunta debe tener al menos 5 caracteres." }).max(200, { message: "La pregunta debe tener como máximo 200 caracteres." }),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -40,7 +40,7 @@ const AiAssistant: React.FC = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsLoading(true);
     setMessages(prev => [...prev, { type: 'user', text: data.question }]);
-    form.reset(); // Reset form immediately after capturing question
+    form.reset(); 
 
     try {
       const result: AnswerQuestionFromWebsiteOutput = await answerQuestionFromWebsite({
@@ -49,13 +49,13 @@ const AiAssistant: React.FC = () => {
       });
       setMessages(prev => [...prev, { type: 'ai', text: result.answer }]);
     } catch (error) {
-      console.error("AI Assistant Error:", error);
+      console.error("Error del Asistente IA:", error);
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Failed to get an answer from the AI assistant. Please try again.",
+        description: "No se pudo obtener una respuesta del asistente de IA. Por favor, inténtelo de nuevo.",
       });
-       setMessages(prev => [...prev, { type: 'ai', text: "I'm sorry, I encountered an error and couldn't process your request." }]);
+       setMessages(prev => [...prev, { type: 'ai', text: "Lo siento, encontré un error y no pude procesar su solicitud." }]);
     } finally {
       setIsLoading(false);
     }
@@ -68,16 +68,16 @@ const AiAssistant: React.FC = () => {
           <CardHeader className="bg-primary text-primary-foreground p-6">
             <div className="flex items-center gap-3">
               <Bot size={32} />
-              <CardTitle className="text-2xl font-headline">AI Info Assistant</CardTitle>
+              <CardTitle className="text-2xl font-headline">Asistente de Información IA</CardTitle>
             </div>
             <CardDescription className="text-primary-foreground/80 mt-1">
-              Ask a question about ArtDent services, hours, or policies.
+              Haga una pregunta sobre los servicios, horarios o políticas de ArtDent.
             </CardDescription>
           </CardHeader>
           <CardContent className="p-6">
             <ScrollArea className="h-[300px] w-full pr-4 mb-6 border rounded-md p-4 bg-muted/30">
               {messages.length === 0 && !isLoading && (
-                <p className="text-muted-foreground text-center py-10">Ask me anything about ArtDent!</p>
+                <p className="text-muted-foreground text-center py-10">¡Pregúntame lo que sea sobre ArtDent!</p>
               )}
               {messages.map((msg, index) => (
                 <div key={index} className={`flex mb-4 ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -92,12 +92,12 @@ const AiAssistant: React.FC = () => {
                   </div>
                 </div>
               ))}
-              {isLoading && messages[messages.length-1]?.type === 'user' && ( // Show loading indicator only after user question
+              {isLoading && messages[messages.length-1]?.type === 'user' && ( 
                 <div className="flex justify-start mb-4">
                   <div className="p-3 rounded-lg bg-muted text-muted-foreground flex items-center gap-2">
                     <Bot size={20} className="flex-shrink-0 text-accent"/>
                     <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Thinking...</span>
+                    <span>Pensando...</span>
                   </div>
                 </div>
               )}
@@ -109,23 +109,23 @@ const AiAssistant: React.FC = () => {
                   name="question"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel htmlFor="ai-question" className="sr-only">Your Question</FormLabel>
+                      <FormLabel htmlFor="ai-question" className="sr-only">Su Pregunta</FormLabel>
                       <FormControl>
                         <div className="relative flex items-center">
                           <Input
                             id="ai-question"
-                            placeholder="e.g., What are your opening hours on Saturday?"
+                            placeholder="Ej: ¿Cuál es su horario los sábados?"
                             {...field}
                             className="pr-12 py-6"
                             disabled={isLoading}
-                            aria-label="Ask the AI assistant a question"
+                            aria-label="Hacer una pregunta al asistente de IA"
                           />
                           <Button 
                             type="submit" 
                             size="icon" 
                             className="absolute right-2 top-1/2 -translate-y-1/2 h-9 w-9" 
                             disabled={isLoading}
-                            aria-label="Send question"
+                            aria-label="Enviar pregunta"
                           >
                             {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
                           </Button>
@@ -140,7 +140,7 @@ const AiAssistant: React.FC = () => {
           </CardContent>
           <CardFooter className="p-6 bg-muted/50 border-t">
              <p className="text-xs text-muted-foreground">
-              The AI assistant provides information based on available website content. For critical or personal health queries, please consult directly with our staff.
+              El asistente de IA proporciona información basada en el contenido disponible del sitio web. Para consultas críticas o de salud personal, por favor consulte directamente con nuestro personal.
             </p>
           </CardFooter>
         </Card>

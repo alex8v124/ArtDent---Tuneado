@@ -3,27 +3,27 @@ import type { FAQItem } from '@/types';
 export const faqs: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'How often should I visit the dentist?',
-    answer: 'We recommend visiting the dentist for a checkup and cleaning every six months. However, your dentist may suggest a different schedule based on your individual oral health needs.',
+    question: '¿Con qué frecuencia debo visitar al dentista?',
+    answer: 'Recomendamos visitar al dentista para una revisión y limpieza cada seis meses. Sin embargo, su dentista puede sugerir un horario diferente según sus necesidades individuales de salud bucal.',
   },
   {
     id: 'faq-2',
-    question: 'What are the signs of gum disease?',
-    answer: 'Common signs of gum disease include red, swollen, or tender gums, bleeding gums when brushing or flossing, persistent bad breath, receding gums, and loose teeth. If you notice any of these symptoms, please schedule an appointment.',
+    question: '¿Cuáles son los signos de la enfermedad de las encías?',
+    answer: 'Los signos comunes de la enfermedad de las encías incluyen encías rojas, hinchadas o sensibles, sangrado de encías al cepillarse o usar hilo dental, mal aliento persistente, encías retraídas y dientes flojos. Si nota alguno de estos síntomas, por favor programe una cita.',
   },
   {
     id: 'faq-3',
-    question: 'Do you accept dental insurance?',
-    answer: 'Yes, we accept a wide range of dental insurance plans. Please contact our office with your insurance information, and we will be happy to verify your coverage.',
+    question: '¿Aceptan seguro dental?',
+    answer: 'Sí, aceptamos una amplia gama de planes de seguro dental. Por favor, contacte nuestra oficina con la información de su seguro y estaremos encantados de verificar su cobertura.',
   },
   {
     id: 'faq-4',
-    question: 'What should I do in a dental emergency?',
-    answer: 'If you have a dental emergency, such as severe toothache, a knocked-out tooth, or a broken jaw, please contact our office immediately. We offer emergency dental services and will provide guidance on how to manage the situation until you can be seen.',
+    question: '¿Qué debo hacer en una emergencia dental?',
+    answer: 'Si tiene una emergencia dental, como un dolor de muelas intenso, un diente que se ha salido, o una mandíbula rota, por favor contacte nuestra oficina de inmediato. Ofrecemos servicios dentales de emergencia y le proporcionaremos orientación sobre cómo manejar la situación hasta que pueda ser atendido.',
   },
   {
     id: 'faq-5',
-    question: 'Are dental X-rays safe?',
-    answer: 'Yes, dental X-rays are very safe. We use digital X-ray technology, which significantly reduces radiation exposure compared to traditional film X-rays. X-rays are an important diagnostic tool that helps us detect problems not visible during a regular exam.',
+    question: '¿Son seguras las radiografías dentales?',
+    answer: 'Sí, las radiografías dentales son muy seguras. Utilizamos tecnología de radiografía digital, que reduce significativamente la exposición a la radiación en comparación con las radiografías de película tradicionales. Las radiografías son una herramienta de diagnóstico importante que nos ayuda a detectar problemas no visibles durante un examen regular.',
   },
 ];

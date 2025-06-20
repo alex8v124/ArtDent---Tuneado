@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       <CardFooter className="p-6 border-t">
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="w-full hover:bg-accent hover:text-accent-foreground transition-colors">Read More</Button>
+            <Button variant="outline" className="w-full hover:bg-accent hover:text-accent-foreground transition-colors">Leer Más</Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[600px] p-0">
             <ScrollArea className="max-h-[80vh]">
@@ -52,7 +52,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                       width={600} 
                       height={400} 
                       className="w-full h-auto object-cover"
-                      data-ai-hint={service.dataAiHint || "dental service"}
+                      data-ai-hint={service.dataAiHint || "servicio dental"}
                     />
                   </div>
                 )}
@@ -60,7 +60,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                   {service.longDescription}
                 </DialogDescription>
                 <DialogFooter className="mt-6 sm:justify-end">
-                   {/* Intentionally empty or add a close button if DialogClose isn't enough */}
+                   {/* Intencionalmente vacío o agregar un botón de cierre si DialogClose no es suficiente */}
                 </DialogFooter>
               </div>
             </ScrollArea>

@@ -1,25 +1,25 @@
 'use server';
 /**
- * @fileOverview An AI agent that answers questions about ArtDent's services using content from the clinic's website.
+ * @fileOverview Un agente de IA que responde preguntas sobre los servicios de ArtDent utilizando contenido del sitio web de la clínica.
  *
- * - answerQuestionFromWebsite - A function that answers a user's question about ArtDent's services.
- * - AnswerQuestionFromWebsiteInput - The input type for the answerQuestionFromWebsite function.
- * - AnswerQuestionFromWebsiteOutput - The return type for the answerQuestionFromWebsite function.
+ * - answerQuestionFromWebsite - Una función que responde la pregunta de un usuario sobre los servicios de ArtDent.
+ * - AnswerQuestionFromWebsiteInput - El tipo de entrada para la función answerQuestionFromWebsite.
+ * - AnswerQuestionFromWebsiteOutput - El tipo de retorno para la función answerQuestionFromWebsite.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const AnswerQuestionFromWebsiteInputSchema = z.object({
-  question: z.string().describe('The user question about ArtDent services.'),
+  question: z.string().describe('La pregunta del usuario sobre los servicios de ArtDent.'),
   websiteContent: z
     .string()
-    .describe('The content of the ArtDent website to use for answering the question.'),
+    .describe('El contenido del sitio web de ArtDent para usar al responder la pregunta.'),
 });
 export type AnswerQuestionFromWebsiteInput = z.infer<typeof AnswerQuestionFromWebsiteInputSchema>;
 
 const AnswerQuestionFromWebsiteOutputSchema = z.object({
-  answer: z.string().describe('The answer to the user question.'),
+  answer: z.string().describe('La respuesta a la pregunta del usuario.'),
 });
 export type AnswerQuestionFromWebsiteOutput = z.infer<typeof AnswerQuestionFromWebsiteOutputSchema>;
 
@@ -31,13 +31,13 @@ const prompt = ai.definePrompt({
   name: 'answerQuestionFromWebsitePrompt',
   input: {schema: AnswerQuestionFromWebsiteInputSchema},
   output: {schema: AnswerQuestionFromWebsiteOutputSchema},
-  prompt: `You are an AI assistant answering questions about ArtDent's services.
-  Use the following content from the ArtDent website to answer the user's question.
-  If the content does not contain the answer, respond that you cannot answer the question using the provided content.
+  prompt: `Eres un asistente de IA que responde preguntas sobre los servicios de ArtDent.
+  Utiliza el siguiente contenido del sitio web de ArtDent para responder la pregunta del usuario.
+  Si el contenido no contiene la respuesta, responde que no puedes responder la pregunta utilizando el contenido proporcionado.
 
-  Website Content: {{{websiteContent}}}
+  Contenido del Sitio Web: {{{websiteContent}}}
 
-  Question: {{{question}}}
+  Pregunta: {{{question}}}
   `,
 });
 

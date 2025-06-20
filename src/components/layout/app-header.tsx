@@ -9,11 +9,11 @@ const AppHeader = () => {
         <Link href="/" className="flex items-center gap-2 group">
           <ToothIcon className="h-8 w-8 text-primary-foreground group-hover:text-accent transition-colors duration-300" />
           <h1 className="text-2xl font-headline font-bold group-hover:text-accent transition-colors duration-300">
-            ArtDent Info Center
+            Centro de Información ArtDent
           </h1>
         </Link>
         <nav>
-          {/* Navigation links can be added here if needed */}
+          {/* Los enlaces de navegación se pueden agregar aquí si es necesario */}
         </nav>
       </div>
     </header>

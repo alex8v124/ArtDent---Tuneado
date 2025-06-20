@@ -1,59 +1,60 @@
+import React from 'react';
 import type { Service } from '@/types';
 import { Stethoscope, Sparkles, SmilePlus, Activity, ShieldCheck, Anchor } from 'lucide-react';
 
 export const services: Service[] = [
   {
     id: 'general-checkups',
-    title: 'General Checkups',
-    shortDescription: 'Comprehensive oral health examinations and preventive care.',
-    longDescription: 'Our general checkups include a thorough examination of your teeth, gums, and mouth, along with professional cleaning and oral cancer screenings. We focus on preventive care to help you maintain optimal oral health and catch any potential issues early.',
+    title: 'Revisiones Generales',
+    shortDescription: 'Exámenes completos de salud bucal y cuidado preventivo.',
+    longDescription: 'Nuestras revisiones generales incluyen un examen completo de sus dientes, encías y boca, junto con limpieza profesional y detección de cáncer oral. Nos enfocamos en el cuidado preventivo para ayudarle a mantener una salud bucal óptima y detectar cualquier problema potencial de manera temprana.',
     icon: <Stethoscope className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "dental checkup"
+    dataAiHint: "revisión dental"
   },
   {
     id: 'teeth-cleaning',
-    title: 'Teeth Cleaning',
-    shortDescription: 'Professional dental cleaning for a healthier, brighter smile.',
-    longDescription: 'Our professional teeth cleaning service removes plaque, tartar, and stains that regular brushing and flossing can\'t reach. This helps prevent gum disease, cavities, and leaves your teeth feeling fresh and looking brighter.',
+    title: 'Limpieza Dental',
+    shortDescription: 'Limpieza dental profesional para una sonrisa más sana y brillante.',
+    longDescription: 'Nuestro servicio de limpieza dental profesional elimina la placa, el sarro y las manchas que el cepillado y el hilo dental habituales no pueden alcanzar. Esto ayuda a prevenir la enfermedad de las encías, las caries y deja sus dientes con una sensación fresca y un aspecto más brillante.',
     icon: <Sparkles className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "teeth cleaning"
+    dataAiHint: "limpieza dental"
   },
   {
     id: 'cavity-fillings',
-    title: 'Cavity Fillings',
-    shortDescription: 'Restoration of teeth damaged by decay using modern materials.',
-    longDescription: 'We offer various types of fillings, including tooth-colored composite fillings, to restore teeth affected by cavities. Our goal is to provide durable and aesthetically pleasing restorations that blend seamlessly with your natural teeth.',
+    title: 'Empastes de Caries',
+    shortDescription: 'Restauración de dientes dañados por caries utilizando materiales modernos.',
+    longDescription: 'Ofrecemos varios tipos de empastes, incluidos los empastes de composite del color del diente, para restaurar los dientes afectados por caries. Nuestro objetivo es proporcionar restauraciones duraderas y estéticamente agradables que se integren perfectamente con sus dientes naturales.',
     icon: <SmilePlus className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "dental filling"
+    dataAiHint: "empaste dental"
   },
   {
     id: 'root-canal-therapy',
-    title: 'Root Canal Therapy',
-    shortDescription: 'Treatment for infected tooth pulp to save a natural tooth.',
-    longDescription: 'Root canal therapy is a procedure to treat infection at the center of a tooth (the root canal system). This treatment can save your natural tooth and prevent the need for extraction. We use modern techniques to ensure the procedure is as comfortable as possible.',
+    title: 'Tratamiento de Conducto',
+    shortDescription: 'Tratamiento para la pulpa dental infectada para salvar un diente natural.',
+    longDescription: 'El tratamiento de conducto es un procedimiento para tratar la infección en el centro de un diente (el sistema de conductos radiculares). Este tratamiento puede salvar su diente natural y evitar la necesidad de extracción. Utilizamos técnicas modernas para garantizar que el procedimiento sea lo más cómodo posible.',
     icon: <Activity className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "root canal"
+    dataAiHint: "conducto radicular"
   },
   {
     id: 'dental-crowns',
-    title: 'Dental Crowns',
-    shortDescription: 'Caps placed over damaged teeth to restore shape, size, and strength.',
-    longDescription: 'Dental crowns are custom-made caps that cover a damaged or weakened tooth. They restore the tooth\'s shape, size, strength, and appearance. Crowns can be made from various materials, including porcelain and ceramic, to match your natural teeth.',
+    title: 'Coronas Dentales',
+    shortDescription: 'Fundas colocadas sobre dientes dañados para restaurar forma, tamaño y resistencia.',
+    longDescription: 'Las coronas dentales son fundas hechas a medida que cubren un diente dañado o debilitado. Restauran la forma, el tamaño, la resistencia y la apariencia del diente. Las coronas pueden estar hechas de diversos materiales, incluyendo porcelana y cerámica, para que coincidan con sus dientes naturales.',
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "dental crown"
+    dataAiHint: "corona dental"
   },
   {
     id: 'dental-implants',
-    title: 'Dental Implants',
-    shortDescription: 'Permanent solutions for replacing missing teeth.',
-    longDescription: 'Dental implants are a state-of-the-art solution for replacing missing teeth. They consist of a titanium post that integrates with your jawbone, providing a strong foundation for a replacement tooth or bridge. Implants look, feel, and function like natural teeth.',
+    title: 'Implantes Dentales',
+    shortDescription: 'Soluciones permanentes para reemplazar dientes perdidos.',
+    longDescription: 'Los implantes dentales son una solución de vanguardia para reemplazar los dientes perdidos. Consisten en un poste de titanio que se integra con el hueso maxilar, proporcionando una base sólida para un diente de reemplazo o un puente. Los implantes se ven, se sienten y funcionan como dientes naturales.',
     icon: <Anchor className="h-10 w-10 text-primary" />,
     image: "https://placehold.co/600x400.png",
-    dataAiHint: "dental implant"
+    dataAiHint: "implante dental"
   },
 ];

@@ -5,8 +5,8 @@ import AppHeader from '@/components/layout/app-header';
 import AppFooter from '@/components/layout/app-footer';
 
 export const metadata: Metadata = {
-  title: 'ArtDent Info Center',
-  description: 'Your guide to ArtDent\'s services and information.',
+  title: 'Centro de Información ArtDent',
+  description: 'Su guía de los servicios e información de ArtDent.',
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
