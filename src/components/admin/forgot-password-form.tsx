@@ -13,6 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, Mail, Loader2 } from 'lucide-react';
+import artDentLogo from '@/components/img/img_logo.png';
 
 const forgotPasswordSchema = z.object({
   email: z.string().email({ message: "Por favor ingrese un correo electrónico válido." }),
@@ -50,7 +51,7 @@ const ForgotPasswordForm: React.FC = () => {
     <Card className="w-full max-w-md mx-auto shadow-2xl rounded-xl">
       <CardHeader className="text-center">
         <div className="flex justify-center items-center mb-4">
-          <Image src="/img_logo.png" alt="ArtDent Logo" width={48} height={48} />
+          <Image src={artDentLogo} alt="ArtDent Logo" width={48} height={48} />
           <h1 className="text-4xl font-headline font-bold text-primary ml-2">ArtDent</h1>
         </div>
         <CardTitle className="text-2xl font-semibold">¿Olvidó su Contraseña?</CardTitle>

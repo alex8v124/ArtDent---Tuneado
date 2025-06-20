@@ -16,6 +16,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, User, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import artDentLogo from '@/components/img/img_logo.png';
 
 const loginSchema = z.object({
   documentNumber: z.string().min(1, { message: "El número de documento es obligatorio." }),
@@ -72,7 +73,7 @@ const LoginForm: React.FC = () => {
         <Card className="w-full max-w-md mx-auto shadow-none border-none bg-transparent">
           <CardHeader className="text-center mb-6">
             <div className="flex justify-center items-center mb-4">
-              <Image src="/img_logo.png" alt="ArtDent Logo" width={48} height={48} />
+              <Image src={artDentLogo} alt="ArtDent Logo" width={48} height={48} />
               <h1 className="text-4xl font-headline font-bold text-primary ml-2">ArtDent</h1>
             </div>
             <h2 className="text-2xl font-semibold text-foreground">Inicia Sesión</h2>

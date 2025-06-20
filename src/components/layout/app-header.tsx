@@ -4,13 +4,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { LogIn } from 'lucide-react';
+import artDentLogo from '@/components/img/img_logo.png';
 
 const AppHeader = () => {
   return (
     <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <Image src="/img_logo.png" alt="ArtDent Logo" width={32} height={32} className="group-hover:scale-110 transition-transform duration-300" />
+          <Image src={artDentLogo} alt="ArtDent Logo" width={32} height={32} className="group-hover:scale-110 transition-transform duration-300" />
           <h1 className="text-2xl font-headline font-bold group-hover:text-accent transition-colors duration-300">
             Centro de Información ArtDent
           </h1>
