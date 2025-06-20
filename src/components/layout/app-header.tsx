@@ -17,7 +17,7 @@ const navItems = [
   { href: '/reservar-cita', label: 'Reservar Cita' },
 ];
 
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
+const AppHeader = () => {
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -25,22 +25,6 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
     setIsMounted(true);
   }, []);
 
-  const isActive = isMounted && pathname === href;
-
-  return (
-    <Link
-      href={href}
-      className={cn(
-        "text-base font-medium transition-colors hover:text-primary",
-        isActive ? "text-primary font-semibold" : "text-foreground/70"
-      )}
-    >
-      {children}
-    </Link>
-  );
-};
-
-const AppHeader = () => {
   return (
     <header className="bg-background text-foreground shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -59,9 +43,16 @@ const AppHeader = () => {
         
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <NavLink key={item.href} href={item.href}>
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "text-base font-medium transition-colors hover:text-primary",
+                isMounted && pathname === item.href ? "text-primary font-semibold" : "text-foreground/70"
+              )}
+            >
               {item.label}
-            </NavLink>
+            </Link>
           ))}
         </nav>
 
