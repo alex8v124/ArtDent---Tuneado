@@ -54,7 +54,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                         src={service.image} 
                         alt={service.title} 
                         width={600} 
-                        height={400} 
+                        height={300} 
                         className="w-full h-auto"
                         data-ai-hint={service.dataAiHint || "servicio dental"}
                       />
