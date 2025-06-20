@@ -48,15 +48,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                 </DialogHeader>
                 
                 {service.image && (
-                  <div className="my-6 rounded-lg overflow-hidden shadow-lg border">
-                    <Image 
-                      src={service.image} 
-                      alt={service.title} 
-                      width={800} 
-                      height={450} 
-                      className="w-full h-auto object-cover"
-                      data-ai-hint={service.dataAiHint || "servicio dental"}
-                    />
+                  <div className="my-6 flex justify-center">
+                    <div className="w-full max-w-3xl rounded-lg overflow-hidden shadow-lg border">
+                      <Image 
+                        src={service.image} 
+                        alt={service.title} 
+                        width={800} 
+                        height={450} 
+                        className="w-full h-auto object-cover"
+                        data-ai-hint={service.dataAiHint || "servicio dental"}
+                      />
+                    </div>
                   </div>
                 )}
 
