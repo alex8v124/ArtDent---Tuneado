@@ -1,19 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import {
-  ClipboardList,
-  CalendarDays,
-  History,
-  Bell,
-  LineChart,
-  LogOut,
-} from 'lucide-react';
-import { usePathname } from 'next/navigation';
 
 import '../globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import ToothIcon from '@/components/img/tooth-icon';
-import { cn } from '@/lib/utils';
 import AdminSidebar from '@/components/admin/admin-sidebar';
 
 export const metadata: Metadata = {
