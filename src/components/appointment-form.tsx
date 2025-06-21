@@ -141,24 +141,24 @@ const AppointmentForm: React.FC = () => {
                   </FormItem>
                 )}
               />
-              <FormItem>
-                  <div className="flex items-center">
-                    <div className="flex items-center p-3 rounded-md border border-input bg-background">
-                       <PeruFlagIcon />
-                       <span className="text-sm text-muted-foreground">+51</span>
+              <FormField
+                control={form.control}
+                name="celular"
+                render={({ field }) => (
+                  <FormItem>
+                    <div className="flex items-center">
+                      <div className="flex items-center p-3 rounded-md border border-input bg-background">
+                         <PeruFlagIcon />
+                         <span className="text-sm text-muted-foreground">+51</span>
+                      </div>
+                      <FormControl>
+                        <Input type="tel" placeholder="Ingrese su celular" {...field} className="py-6 rounded-l-none border-l-0"/>
+                      </FormControl>
                     </div>
-                    <FormField
-                      control={form.control}
-                      name="celular"
-                      render={({ field }) => (
-                        <FormControl>
-                          <Input type="tel" placeholder="Ingrese su celular" {...field} className="py-6 rounded-l-none border-l-0"/>
-                        </FormControl>
-                      )}
-                    />
-                  </div>
-                   <FormMessage>{form.formState.errors.celular?.message}</FormMessage>
-              </FormItem>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
 
             <FormField
