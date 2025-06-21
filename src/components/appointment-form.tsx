@@ -17,7 +17,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { services } from '@/data/services';
-import type { Service } from '@/types';
 import PayPalLogo from '@/components/img/paypal-logo';
 import { Checkbox } from '@/components/ui/checkbox';
 import Link from 'next/link';
@@ -28,7 +27,7 @@ const appointmentFormSchema = z.object({
   dni: z.string().min(8, "El DNI debe tener al menos 8 caracteres.").max(15, "El DNI no debe exceder los 15 caracteres."),
   celular: z.string().min(7, "El celular debe tener al menos 7 dígitos.").regex(/^\+?[0-9\s-()]+$/, "Número de celular inválido."),
   email: z.string().email("Correo electrónico inválido."),
-  motivoServicio: z.string({ required_error: "Debe seleccionar un motivo/servicio."}),
+  motivoServicio: z.string({ required_error: "Debe seleccionar un motivo/servicio."}).min(1, "Debe seleccionar un motivo/servicio."),
   fechaCita: z.date({
     required_error: "La fecha de la cita es obligatoria.",
   }),
@@ -50,7 +49,6 @@ const PeruFlagIcon = () => (
 
 const AppointmentForm: React.FC = () => {
   const { toast } = useToast();
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [totalPagar, setTotalPagar] = useState<number>(0);
 
   const form = useForm<AppointmentFormData>({
@@ -61,23 +59,26 @@ const AppointmentForm: React.FC = () => {
       dni: "",
       celular: "",
       email: "",
-      motivoServicio: undefined,
+      motivoServicio: "",
       terminos: false,
       horaCita: "",
     },
   });
 
-  const handleServiceChange = (serviceId: string) => {
-    const service = services.find(s => s.id === serviceId);
-    if (service) {
-      setSelectedService(service);
-      setTotalPagar(service.price);
-      form.setValue("motivoServicio", serviceId);
+  const selectedServiceId = form.watch('motivoServicio');
+
+  useEffect(() => {
+    if (selectedServiceId) {
+      const service = services.find(s => s.id === selectedServiceId);
+      if (service) {
+        setTotalPagar(service.price);
+      } else {
+        setTotalPagar(0);
+      }
     } else {
-      setSelectedService(null);
-      setTotalPagar(0);
+        setTotalPagar(0);
     }
-  };
+  }, [selectedServiceId]);
   
   const onSubmit: SubmitHandler<AppointmentFormData> = (data) => {
     console.log("Datos de la cita:", data);
@@ -86,8 +87,6 @@ const AppointmentForm: React.FC = () => {
       description: "Su pago se ha procesado correctamente. ¡Gracias por confiar en ArtDent!",
     });
     form.reset();
-    setSelectedService(null);
-    setTotalPagar(0);
   };
 
   return (
@@ -181,20 +180,20 @@ const AppointmentForm: React.FC = () => {
                   name="motivoServicio"
                   render={({ field }) => (
                     <FormItem>
-                      <FormControl>
-                        <Select onValueChange={handleServiceChange} defaultValue={field.value}>
+                       <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
                           <SelectTrigger className="py-6">
                             <SelectValue placeholder="Seleccione el servicio que desea recibir" />
                           </SelectTrigger>
-                          <SelectContent>
-                            {services.map(service => (
-                              <SelectItem key={service.id} value={service.id}>
-                                {service.title}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </FormControl>
+                        </FormControl>
+                        <SelectContent>
+                          {services.map(service => (
+                            <SelectItem key={service.id} value={service.id}>
+                              {service.title}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                       <FormMessage />
                     </FormItem>
                   )}
