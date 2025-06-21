@@ -15,6 +15,7 @@ import { Eye, EyeOff, User, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import artDentLogo from '@/components/img/img_logo.png';
 import { login } from '@/lib/auth-actions';
+import { useToast } from '@/hooks/use-toast';
 
 const loginSchema = z.object({
   documentNumber: z.string().min(1, { message: "El número de documento es obligatorio." }),
@@ -27,6 +28,7 @@ type LoginFormData = z.infer<typeof loginSchema>;
 const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -39,13 +41,18 @@ const LoginForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     setIsLoading(true);
-    // The `login` server action handles the redirect on success.
-    // A try/catch block is not needed here because the redirect mechanism in Next.js
-    // throws an error that is intentionally not caught, allowing the framework to
-    // handle the redirection. Any real login errors would be handled inside the server action.
-    await login();
-    // This line will likely not be reached on success, as the page will redirect.
-    setIsLoading(false);
+    
+    const result = await login(data);
+
+    if (result?.error) {
+      toast({
+        variant: "destructive",
+        title: "Error de Autenticación",
+        description: result.error,
+      });
+      setIsLoading(false);
+    }
+    // On success, the login action throws a redirect, so we don't need to set isLoading to false here.
   };
 
   return (
