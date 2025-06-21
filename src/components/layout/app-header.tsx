@@ -76,50 +76,57 @@ const AppHeaderComponent = () => {
 
 export function LayoutProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdminRoute = pathname.startsWith('/admin');
+  const [isMounted, setIsMounted] = useState(false);
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    // Evita el error de hidratación renderizando null en el servidor y en el primer render del cliente.
+    return null;
+  }
+
+  const isAdminRoute = pathname.startsWith('/admin');
+  const publicAdminRoutes = ['/admin/login', '/admin/forgot-password'];
+  
   if (isAdminRoute) {
-    const publicAdminRoutes = ['/admin/login', '/admin/forgot-password'];
     if (publicAdminRoutes.includes(pathname)) {
       // Render public admin layout (centered form)
       return (
-        <div className="flex flex-col min-h-screen">
-          <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
-            {children}
-          </main>
-        </div>
+        <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          {children}
+        </main>
       );
     }
 
     // Render protected admin layout (dashboard)
     return (
-      <div className="flex flex-col min-h-screen">
-        <main className="flex-grow flex bg-muted/30">
-          <AdminSidebar />
-          <div className="flex-1 flex flex-col">
-            <header className="bg-card shadow-sm border-b">
-              <div className="mx-auto px-8 py-4">
-                <h1 className="text-2xl font-bold text-foreground">
-                  Panel de Control - Clínica
-                </h1>
-              </div>
-            </header>
-            <div className="flex-1 p-8 overflow-y-auto">{children}</div>
-          </div>
-        </main>
-      </div>
+      <main className="flex-grow flex bg-muted/30">
+        <AdminSidebar />
+        <div className="flex-1 flex flex-col">
+          <header className="bg-card shadow-sm border-b">
+            <div className="mx-auto px-8 py-4">
+              <h1 className="text-2xl font-bold text-foreground">
+                Panel de Control - Clínica
+              </h1>
+            </div>
+          </header>
+          <div className="flex-1 p-8 overflow-y-auto">{children}</div>
+        </div>
+      </main>
     );
   }
   
   // Render public layout
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <AppHeaderComponent />
       <main className="flex-grow container mx-auto px-4 py-8">
         {children}
       </main>
       <AppFooter />
-    </div>
+    </>
   );
 }
 
