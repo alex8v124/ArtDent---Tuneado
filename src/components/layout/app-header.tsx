@@ -96,27 +96,27 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
   if (publicAdminRoutes.includes(pathname)) {
     // Render public admin layout (centered form)
     return (
-      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-background">
+      <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
         {children}
-      </div>
+      </main>
     );
   }
 
   // Render protected admin layout (dashboard)
   return (
-    <div className="flex min-h-screen bg-background">
+    <main className="flex-grow flex bg-muted/30">
       <AdminSidebar />
       <div className="flex-1 flex flex-col">
-        <header className="bg-white shadow-sm border-b border-gray-200">
-          <div className="container mx-auto px-8 py-4">
-            <h1 className="text-2xl font-bold text-gray-800">
+        <header className="bg-card shadow-sm border-b">
+          <div className="mx-auto px-8 py-4">
+            <h1 className="text-2xl font-bold text-foreground">
               Panel de Control - Clínica
             </h1>
           </div>
         </header>
-        <main className="flex-1 p-8">{children}</main>
+        <div className="flex-1 p-8 overflow-y-auto">{children}</div>
       </div>
-    </div>
+    </main>
   );
 }
 
