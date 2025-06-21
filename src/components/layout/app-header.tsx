@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -22,11 +22,6 @@ const navItems = [
 
 const AppHeaderComponent = () => {
   const pathname = usePathname();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   return (
     <header className="bg-background text-foreground shadow-md sticky top-0 z-50">
@@ -51,7 +46,7 @@ const AppHeaderComponent = () => {
               href={item.href}
               className={cn(
                 "text-base font-medium transition-colors hover:text-primary",
-                isMounted && pathname === item.href ? "text-primary font-semibold" : "text-foreground/70"
+                pathname === item.href ? "text-primary font-semibold" : "text-foreground/70"
               )}
             >
               {item.label}
@@ -76,16 +71,6 @@ const AppHeaderComponent = () => {
 
 export function LayoutProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    // Evita el error de hidratación renderizando null en el servidor y en el primer render del cliente.
-    return null;
-  }
 
   const isAdminRoute = pathname.startsWith('/admin');
   const publicAdminRoutes = ['/admin/login', '/admin/forgot-password'];
@@ -94,39 +79,43 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
     if (publicAdminRoutes.includes(pathname)) {
       // Render public admin layout (centered form)
       return (
-        <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
-          {children}
-        </main>
+        <div className="flex flex-col min-h-screen">
+            <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
+              {children}
+            </main>
+        </div>
       );
     }
 
     // Render protected admin layout (dashboard)
     return (
-      <main className="flex-grow flex bg-muted/30">
-        <AdminSidebar />
-        <div className="flex-1 flex flex-col">
-          <header className="bg-card shadow-sm border-b">
-            <div className="mx-auto px-8 py-4">
-              <h1 className="text-2xl font-bold text-foreground">
-                Panel de Control - Clínica
-              </h1>
+      <div className="flex flex-col min-h-screen">
+          <main className="flex-grow flex bg-muted/30">
+            <AdminSidebar />
+            <div className="flex-1 flex flex-col">
+              <header className="bg-card shadow-sm border-b">
+                <div className="mx-auto px-8 py-4">
+                  <h1 className="text-2xl font-bold text-foreground">
+                    Panel de Control - Clínica
+                  </h1>
+                </div>
+              </header>
+              <div className="flex-1 p-8 overflow-y-auto">{children}</div>
             </div>
-          </header>
-          <div className="flex-1 p-8 overflow-y-auto">{children}</div>
-        </div>
-      </main>
+          </main>
+      </div>
     );
   }
   
   // Render public layout
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <AppHeaderComponent />
       <main className="flex-grow container mx-auto px-4 py-8">
         {children}
       </main>
       <AppFooter />
-    </>
+    </div>
   );
 }
 
