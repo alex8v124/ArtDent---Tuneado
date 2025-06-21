@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import ToothIcon from '@/components/img/tooth-icon';
 import { cn } from '@/lib/utils';
+import { logout } from '@/lib/auth-actions';
 
 const navItems = [
   { href: '/admin/requests', label: 'Solicitudes de Reserva', icon: ClipboardList },
@@ -47,13 +48,15 @@ const AdminSidebar = () => {
         ))}
       </nav>
       <div className="px-4 py-6 border-t border-slate-700">
-        <Link
-          href="/"
-          className="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 transition-colors"
-        >
-          <LogOut className="h-5 w-5" />
-          Salir
-        </Link>
+        <form action={logout}>
+          <button
+            type="submit"
+            className="flex w-full items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 transition-colors"
+          >
+            <LogOut className="h-5 w-5" />
+            Salir
+          </button>
+        </form>
       </div>
     </aside>
   );

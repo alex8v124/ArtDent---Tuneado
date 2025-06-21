@@ -1,11 +1,9 @@
-
 "use client";
 
 import React, { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +15,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, User, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import artDentLogo from '@/components/img/img_logo.png';
+import { login } from '@/lib/auth-actions';
 
 const loginSchema = z.object({
   documentNumber: z.string().min(1, { message: "El número de documento es obligatorio." }),
@@ -29,7 +28,6 @@ type LoginFormData = z.infer<typeof loginSchema>;
 const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   const { toast } = useToast();
 
   const form = useForm<LoginFormData>({
@@ -43,18 +41,19 @@ const LoginForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     setIsLoading(true);
-    console.log("Login data:", data);
-
-    // Simulación de llamada a API
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Simulación de éxito
-    toast({
-      title: "Inicio de Sesión Exitoso",
-      description: "Redirigiendo al panel de control...",
-    });
-    router.push('/admin/dashboard');
-    setIsLoading(false);
+    
+    try {
+      // This server action will handle setting the session cookie and redirecting.
+      await login();
+    } catch (error) {
+      // In a real app, the server action would throw an error on failure.
+      toast({
+        variant: "destructive",
+        title: "Error de inicio de sesión",
+        description: "Las credenciales son incorrectas. Por favor, inténtelo de nuevo.",
+      });
+      setIsLoading(false);
+    }
   };
 
   return (
