@@ -12,6 +12,7 @@ import { Calendar } from '@/components/ui/calendar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
@@ -199,12 +200,10 @@ const AppointmentForm: React.FC = () => {
                   )}
                 />
               </div>
-              <FormItem>
-                <FormLabel className="text-xs text-muted-foreground">Total a pagar</FormLabel>
-                <FormControl>
-                  <Input readOnly value={totalPagar > 0 ? `S/. ${totalPagar.toFixed(2)}` : 'S/. 0.00'} className="font-bold text-lg text-right py-6 bg-muted/30" />
-                </FormControl>
-              </FormItem>
+              <div className="space-y-2">
+                <Label className="text-xs text-muted-foreground">Total a pagar</Label>
+                <Input readOnly value={totalPagar > 0 ? `S/. ${totalPagar.toFixed(2)}` : 'S/. 0.00'} className="font-bold text-lg text-right py-6 bg-muted/30" />
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
