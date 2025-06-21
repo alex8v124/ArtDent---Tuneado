@@ -1,6 +1,5 @@
 
 import type { Metadata } from 'next';
-import AdminLayoutClient from '@/components/admin/admin-layout-client';
 
 export const metadata: Metadata = {
   title: {
@@ -15,7 +14,7 @@ export default function AdminLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <AdminLayoutClient>{children}</AdminLayoutClient>
-  );
+  // El layout visual ahora es aplicado por el LayoutProvider en el root layout.
+  // Este archivo solo pasa los hijos y provee metadatos.
+  return <>{children}</>;
 }

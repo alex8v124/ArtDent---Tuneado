@@ -10,6 +10,7 @@ import { LogIn } from 'lucide-react';
 import artDentLogo from '@/components/img/img_logo.png';
 import { cn } from '@/lib/utils';
 import AppFooter from './app-footer';
+import AdminLayoutClient from '../admin/admin-layout-client';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -78,7 +79,7 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
   const isAdminRoute = pathname.startsWith('/admin');
 
   if (isAdminRoute) {
-    return <>{children}</>;
+    return <AdminLayoutClient>{children}</AdminLayoutClient>;
   }
 
   return (
