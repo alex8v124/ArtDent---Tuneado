@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -43,25 +44,31 @@ const LoginForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     setIsLoading(true);
-    
-    const result = await login(data);
+    try {
+      const result = await login(data);
 
-    if (result?.error) {
+      if (result?.success) {
+        toast({
+          title: "Inicio de Sesión Exitoso",
+          description: "Redirigiendo al panel de control...",
+        });
+        router.push('/admin/dashboard');
+        // No need to set isLoading to false here, as we are navigating away.
+      } else {
+        // This will handle both result.error and unexpected cases
+        toast({
+          variant: "destructive",
+          title: "Error de Autenticación",
+          description: result?.error || "Credenciales incorrectas o error inesperado.",
+        });
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
       toast({
         variant: "destructive",
-        title: "Error de Autenticación",
-        description: result.error,
-      });
-      setIsLoading(false);
-    } else if (result?.success) {
-      // On success, redirect the user to the dashboard.
-      router.push('/admin/dashboard');
-    } else {
-      // Handle unexpected cases
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Ha ocurrido un error inesperado. Por favor, inténtelo de nuevo.",
+        title: "Error de Conexión",
+        description: "No se pudo comunicar con el servidor. Inténtelo de nuevo.",
       });
       setIsLoading(false);
     }
