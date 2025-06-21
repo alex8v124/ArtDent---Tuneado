@@ -11,7 +11,6 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, User, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import artDentLogo from '@/components/img/img_logo.png';
@@ -28,7 +27,6 @@ type LoginFormData = z.infer<typeof loginSchema>;
 const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -41,19 +39,13 @@ const LoginForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     setIsLoading(true);
-    
-    try {
-      // This server action will handle setting the session cookie and redirecting.
-      await login();
-    } catch (error) {
-      // In a real app, the server action would throw an error on failure.
-      toast({
-        variant: "destructive",
-        title: "Error de inicio de sesión",
-        description: "Las credenciales son incorrectas. Por favor, inténtelo de nuevo.",
-      });
-      setIsLoading(false);
-    }
+    // The `login` server action handles the redirect on success.
+    // A try/catch block is not needed here because the redirect mechanism in Next.js
+    // throws an error that is intentionally not caught, allowing the framework to
+    // handle the redirection. Any real login errors would be handled inside the server action.
+    await login();
+    // This line will likely not be reached on success, as the page will redirect.
+    setIsLoading(false);
   };
 
   return (
