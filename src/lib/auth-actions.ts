@@ -22,9 +22,8 @@ export async function login(credentials: LoginCredentials) {
       maxAge: 60 * 60 * 24 * 7, // 1 week
       path: '/',
     });
-    // On successful login, redirect to the dashboard.
-    // This is the most reliable way to handle navigation after a server action.
-    redirect('/admin/dashboard');
+    // Return a success response instead of redirecting.
+    return { success: true };
   }
 
   // If credentials don't match, return an error object.

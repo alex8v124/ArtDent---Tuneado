@@ -6,6 +6,7 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'; // Import useRouter
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -30,6 +31,7 @@ const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const router = useRouter(); // Initialize router
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -44,14 +46,19 @@ const LoginForm: React.FC = () => {
     setIsLoading(true);
     try {
       const result = await login(data);
-      // If the login action returns a value, it means an error occurred,
-      // because a successful login redirects and does not return.
-      if (result?.error) {
+      if (result?.success) {
+        // On success, redirect the user to the dashboard.
+        router.push('/admin/dashboard');
+      } else if (result?.error) {
+        // If the server returns an error, display it.
         toast({
           variant: "destructive",
           title: "Error de Autenticación",
           description: result.error,
         });
+      } else {
+        // Handle unexpected responses from the server.
+        throw new Error("Respuesta inesperada del servidor.");
       }
     } catch (error) {
       // This will catch network errors or other unexpected issues.
@@ -62,8 +69,7 @@ const LoginForm: React.FC = () => {
         description: "No se pudo comunicar con el servidor. Por favor, inténtelo más tarde.",
       });
     } finally {
-      // This will only run if the login action fails and returns.
-      // On successful redirect, this component unmounts.
+      // Ensure the loading state is always turned off.
       setIsLoading(false);
     }
   };
