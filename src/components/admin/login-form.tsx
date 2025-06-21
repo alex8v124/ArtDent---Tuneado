@@ -16,6 +16,7 @@ import Link from 'next/link';
 import artDentLogo from '@/components/img/img_logo.png';
 import { login } from '@/lib/auth-actions';
 import { useToast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 const loginSchema = z.object({
   documentNumber: z.string().min(1, { message: "El número de documento es obligatorio." }),
@@ -29,6 +30,7 @@ const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const router = useRouter();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -51,8 +53,18 @@ const LoginForm: React.FC = () => {
         description: result.error,
       });
       setIsLoading(false);
+    } else if (result?.success) {
+      // On success, redirect the user to the dashboard.
+      router.push('/admin/dashboard');
+    } else {
+      // Handle unexpected cases
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Ha ocurrido un error inesperado. Por favor, inténtelo de nuevo.",
+      });
+      setIsLoading(false);
     }
-    // On success, the login action throws a redirect, so we don't need to set isLoading to false here.
   };
 
   return (
