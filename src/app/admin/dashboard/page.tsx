@@ -1,36 +1,78 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Home } from 'lucide-react';
+import { appointments } from '@/data/appointments';
+import { CheckCircle2, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Panel de Administración - ArtDent',
-  description: 'Panel de control para administradores y secretarias de ArtDent.',
+  title: 'Historial de Citas - ArtDent',
+  description: 'Ver el historial de citas de la clínica.',
 };
 
 export default function AdminDashboardPage() {
+  const getStatusIcon = (status: string) => {
+    if (status === 'Completed') {
+      return <CheckCircle2 className="h-5 w-5 text-green-500" />;
+    }
+    // Placeholder for other statuses
+    return <Users className="h-5 w-5 text-gray-500" />;
+  };
+
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Card className="max-w-2xl mx-auto">
-        <CardHeader>
-          <CardTitle className="text-3xl font-headline text-primary">Panel de Administración</CardTitle>
-          <CardDescription>Bienvenido al panel de control de ArtDent.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <p className="text-muted-foreground">
-            Este es un marcador de posición para el panel de administración. Aquí se mostrarán las herramientas y funcionalidades para administradores y secretarias.
-          </p>
-          <div className="flex justify-start">
-            <Button asChild variant="outline">
-              <Link href="/">
-                <Home className="mr-2 h-4 w-4" />
-                Volver a la Página Principal
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Historial de Citas</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Paciente</TableHead>
+              <TableHead>Fecha de Cita</TableHead>
+              <TableHead>Hora</TableHead>
+              <TableHead>Motivo</TableHead>
+              <TableHead>Estado</TableHead>
+              <TableHead className="text-center">Acciones</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {appointments.map((appointment) => (
+              <TableRow key={appointment.id}>
+                <TableCell className="font-medium">{appointment.patientName}</TableCell>
+                <TableCell>{appointment.date}</TableCell>
+                <TableCell>{appointment.time}</TableCell>
+                <TableCell>{appointment.reason}</TableCell>
+                <TableCell>
+                  <div className="flex items-center gap-2">
+                     <span>{appointment.status}</span>
+                    {getStatusIcon(appointment.status)}
+                  </div>
+                </TableCell>
+                <TableCell className="text-center space-x-2">
+                  {appointment.action === 'details' ? (
+                     <Button size="sm" className="bg-yellow-400 hover:bg-yellow-500 text-black">
+                      Ver detalles
+                    </Button>
+                  ) : (
+                    <Button size="sm" variant="default" className="bg-purple-600 hover:bg-purple-700">
+                      Reprogramar
+                    </Button>
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
   );
 }

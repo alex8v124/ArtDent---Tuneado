@@ -16,3 +16,13 @@ export interface FAQItem {
   question: string;
   answer: string;
 }
+
+export interface Appointment {
+  id: string;
+  patientName: string;
+  date: string;
+  time: string;
+  reason: string;
+  status: 'Completed' | 'Pending' | 'Cancelled';
+  action: 'details' | 'reschedule';
+}
