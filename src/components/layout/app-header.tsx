@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { LogIn } from 'lucide-react';
 import artDentLogo from '@/components/img/img_logo.png';
 import { cn } from '@/lib/utils';
+import AppFooter from './app-footer';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -17,7 +19,7 @@ const navItems = [
   { href: '/reservar-cita', label: 'Reservar Cita' },
 ];
 
-const AppHeader = () => {
+const AppHeaderComponent = () => {
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -70,4 +72,25 @@ const AppHeader = () => {
   );
 };
 
+
+export function LayoutProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isAdminRoute = pathname.startsWith('/admin');
+
+  if (isAdminRoute) {
+    return <>{children}</>;
+  }
+
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      <AppHeaderComponent />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        {children}
+      </main>
+      <AppFooter />
+    </div>
+  );
+}
+
+const AppHeader = AppHeaderComponent;
 export default AppHeader;
