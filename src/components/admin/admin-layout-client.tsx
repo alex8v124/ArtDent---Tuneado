@@ -1,3 +1,4 @@
+
 'use client';
 
 import { usePathname } from 'next/navigation';
@@ -15,7 +16,7 @@ export default function AdminLayoutClient({
     // Layout for public pages like login and forgot password.
     // This centers the form component on the page.
     return (
-      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-background">
         {children}
       </div>
     );
@@ -23,7 +24,7 @@ export default function AdminLayoutClient({
 
   // Layout for authenticated admin pages.
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-background">
       <AdminSidebar />
       <div className="flex-1 flex flex-col">
         <header className="bg-white shadow-sm border-b border-gray-200">

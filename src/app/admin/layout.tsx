@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import '../globals.css';
 import { Toaster } from '@/components/ui/toaster';
@@ -30,7 +31,7 @@ export default function AdminLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased bg-gray-50 dark:bg-gray-900">
+      <body className="font-body antialiased">
         <AdminLayoutClient>{children}</AdminLayoutClient>
         <Toaster />
       </body>
