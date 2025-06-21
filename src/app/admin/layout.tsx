@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-
 import '../globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import AdminSidebar from '@/components/admin/admin-sidebar';
+import AdminLayoutClient from '@/components/admin/admin-layout-client';
 
 export const metadata: Metadata = {
   title: {
@@ -32,19 +31,7 @@ export default function AdminLayout({
         />
       </head>
       <body className="font-body antialiased bg-gray-50 dark:bg-gray-900">
-        <div className="flex min-h-screen">
-          <AdminSidebar />
-          <div className="flex-1 flex flex-col">
-            <header className="bg-white shadow-sm border-b border-gray-200">
-              <div className="container mx-auto px-8 py-4">
-                <h1 className="text-2xl font-bold text-gray-800">
-                  Panel de Control - Clínica
-                </h1>
-              </div>
-            </header>
-            <main className="flex-1 p-8">{children}</main>
-          </div>
-        </div>
+        <AdminLayoutClient>{children}</AdminLayoutClient>
         <Toaster />
       </body>
     </html>
