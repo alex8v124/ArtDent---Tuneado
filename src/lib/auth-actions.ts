@@ -1,3 +1,4 @@
+
 'use server';
 
 import { cookies } from 'next/headers';
@@ -21,12 +22,12 @@ export async function login(credentials: LoginCredentials) {
       maxAge: 60 * 60 * 24 * 7, // 1 week
       path: '/',
     });
-    // Instead of redirecting from the server, we return a success status.
-    // The redirect will be handled on the client side.
-    return { success: true };
+    // On successful login, redirect to the dashboard.
+    // This is the most reliable way to handle navigation after a server action.
+    redirect('/admin/dashboard');
   }
 
-  // If credentials don't match, return an error.
+  // If credentials don't match, return an error object.
   return { error: 'Número de documento o contraseña incorrectos.' };
 }
 

@@ -17,7 +17,6 @@ import Link from 'next/link';
 import artDentLogo from '@/components/img/img_logo.png';
 import { login } from '@/lib/auth-actions';
 import { useToast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
 
 const loginSchema = z.object({
   documentNumber: z.string().min(1, { message: "El número de documento es obligatorio." }),
@@ -31,7 +30,6 @@ const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const router = useRouter();
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -46,30 +44,26 @@ const LoginForm: React.FC = () => {
     setIsLoading(true);
     try {
       const result = await login(data);
-
-      if (result?.success) {
-        toast({
-          title: "Inicio de Sesión Exitoso",
-          description: "Redirigiendo al panel de control...",
-        });
-        router.push('/admin/dashboard');
-        // No need to set isLoading to false here, as we are navigating away.
-      } else {
-        // This will handle both result.error and unexpected cases
+      // If the login action returns a value, it means an error occurred,
+      // because a successful login redirects and does not return.
+      if (result?.error) {
         toast({
           variant: "destructive",
           title: "Error de Autenticación",
-          description: result?.error || "Credenciales incorrectas o error inesperado.",
+          description: result.error,
         });
-        setIsLoading(false);
       }
     } catch (error) {
-      console.error("Login failed:", error);
+      // This will catch network errors or other unexpected issues.
+      console.error("Login submission failed:", error);
       toast({
         variant: "destructive",
-        title: "Error de Conexión",
-        description: "No se pudo comunicar con el servidor. Inténtelo de nuevo.",
+        title: "Error",
+        description: "No se pudo comunicar con el servidor. Por favor, inténtelo más tarde.",
       });
+    } finally {
+      // This will only run if the login action fails and returns.
+      // On successful redirect, this component unmounts.
       setIsLoading(false);
     }
   };
