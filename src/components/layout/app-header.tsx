@@ -10,7 +10,7 @@ import { LogIn } from 'lucide-react';
 import artDentLogo from '@/components/img/img_logo.png';
 import { cn } from '@/lib/utils';
 import AppFooter from './app-footer';
-import AdminLayoutClient from '../admin/admin-layout-client';
+import AdminSidebar from '../admin/admin-sidebar';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -78,17 +78,44 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith('/admin');
 
-  if (isAdminRoute) {
-    return <AdminLayoutClient>{children}</AdminLayoutClient>;
+  if (!isAdminRoute) {
+    // Render public layout
+    return (
+      <div className="flex flex-col min-h-screen bg-background">
+        <AppHeaderComponent />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          {children}
+        </main>
+        <AppFooter />
+      </div>
+    );
   }
 
-  return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <AppHeaderComponent />
-      <main className="flex-grow container mx-auto px-4 py-8">
+  // It's an admin route, now check if it's public or protected
+  const publicAdminRoutes = ['/admin/login', '/admin/forgot-password'];
+  if (publicAdminRoutes.includes(pathname)) {
+    // Render public admin layout (centered form)
+    return (
+      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-background">
         {children}
-      </main>
-      <AppFooter />
+      </div>
+    );
+  }
+
+  // Render protected admin layout (dashboard)
+  return (
+    <div className="flex min-h-screen bg-background">
+      <AdminSidebar />
+      <div className="flex-1 flex flex-col">
+        <header className="bg-white shadow-sm border-b border-gray-200">
+          <div className="container mx-auto px-8 py-4">
+            <h1 className="text-2xl font-bold text-gray-800">
+              Panel de Control - Clínica
+            </h1>
+          </div>
+        </header>
+        <main className="flex-1 p-8">{children}</main>
+      </div>
     </div>
   );
 }
