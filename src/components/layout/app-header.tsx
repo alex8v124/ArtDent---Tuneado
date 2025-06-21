@@ -81,13 +81,13 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
   if (!isAdminRoute) {
     // Render public layout
     return (
-      <div className="flex flex-col min-h-screen bg-background">
+      <>
         <AppHeaderComponent />
         <main className="flex-grow container mx-auto px-4 py-8">
           {children}
         </main>
         <AppFooter />
-      </div>
+      </>
     );
   }
 
