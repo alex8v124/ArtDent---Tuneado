@@ -83,19 +83,9 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
     return null;
   }
 
-  const isAdminRoute = pathname.startsWith('/admin');
-  const publicAdminRoutes = ['/admin/login', '/admin/forgot-password'];
+  const isProtectedAdminRoute = pathname.startsWith('/admin') && !['/admin/login', '/admin/forgot-password'].includes(pathname);
   
-  if (publicAdminRoutes.includes(pathname)) {
-    // Render public admin layout (centered form)
-    return (
-      <main className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        {children}
-      </main>
-    );
-  }
-
-  if (isAdminRoute) {
+  if (isProtectedAdminRoute) {
     // Render protected admin layout (dashboard)
     const pageTitles: { [key: string]: string } = {
       '/admin/dashboard': 'Historial de Citas',
@@ -128,7 +118,7 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
     );
   }
   
-  // Render public layout
+  // Render public layout for all other pages, including /admin/login and /admin/forgot-password
   return (
     <>
       <AppHeaderComponent />
