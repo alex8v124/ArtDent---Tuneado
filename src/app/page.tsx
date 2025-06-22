@@ -1,16 +1,25 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Stethoscope, HelpCircle, Bot } from 'lucide-react';
+import Image from 'next/image';
 
 export default function HomePage() {
   return (
     <div className="space-y-12 md:space-y-16">
-      <section className="text-center py-12 md:py-16 bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-xl shadow-sm">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary mb-4">
+      <section className="relative overflow-hidden text-center py-20 md:py-28 rounded-xl shadow-lg">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://cdn-3.expansion.mx/dims4/default/20a5c17/2147483647/strip/true/crop/2121x1414+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F65%2F06%2F99b822244e65b2723c6fb457cde2%2Fistock-810206880.jpg"
+            alt="Fondo de clínica dental"
+            fill
+            className="object-cover brightness-50"
+          />
+        </div>
+        <div className="relative z-10 container mx-auto px-4">
+          <h1 className="text-4xl md:text-5xl font-headline font-bold text-white mb-4">
             Bienvenido al Centro de Información ArtDent
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
             Explore nuestros servicios, encuentre respuestas a sus preguntas y obtenga información rápida con nuestro asistente de IA. 
             ¡Su camino hacia una sonrisa más saludable comienza aquí!
           </p>

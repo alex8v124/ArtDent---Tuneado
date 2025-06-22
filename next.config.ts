@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn-3.expansion.mx',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 };
