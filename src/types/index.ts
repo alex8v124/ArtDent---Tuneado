@@ -21,8 +21,9 @@ export interface Appointment {
   id: string;
   patientName: string;
   patientDni: string;
-  date: string;
-  time: string;
+  date: string; // "dd/MM/yyyy"
+  time: string; // "HH:mm:ss"
+  endTime: string; // "HH:mm:ss"
   reason: string;
   description: string;
   assignedDoctor: string;
@@ -30,6 +31,7 @@ export interface Appointment {
   doctorObservations?: string;
   status: 'Completed' | 'Pending' | 'Cancelled';
   action: 'details' | 'reschedule';
+  color: string;
 }
 
 export interface AppointmentRequest {
