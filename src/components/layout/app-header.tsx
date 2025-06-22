@@ -38,7 +38,7 @@ const AppHeader = () => {
           </h1>
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
