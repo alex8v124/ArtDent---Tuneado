@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppFooter = () => {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 text-center py-6 border-t border-border">
+    <footer className="bg-muted/50 text-center py-6 border-t border-border">
       <p className="text-sm text-muted-foreground">
         &copy; {new Date().getFullYear()} Clínica ArtDent. Todos los derechos reservados.
       </p>

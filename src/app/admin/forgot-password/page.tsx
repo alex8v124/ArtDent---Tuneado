@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function ForgotPasswordPage() {
-  return <ForgotPasswordForm />;
+  return (
+    <div className="flex-grow flex items-center justify-center">
+      <ForgotPasswordForm />
+    </div>
+  );
 }

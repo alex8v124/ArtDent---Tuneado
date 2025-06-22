@@ -11,6 +11,7 @@ import artDentLogo from '@/components/img/img_logo.png';
 import { cn } from '@/lib/utils';
 import AppFooter from './app-footer';
 import AdminSidebar from '../admin/admin-sidebar';
+import { ThemeToggle } from '../theme-toggle';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -24,7 +25,7 @@ const AppHeaderComponent = () => {
   const pathname = usePathname();
 
   return (
-    <header className="bg-background text-foreground shadow-md sticky top-0 z-50">
+    <header className="bg-background/80 backdrop-blur-sm text-foreground shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <Image 
@@ -39,7 +40,7 @@ const AppHeaderComponent = () => {
           </h1>
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -55,6 +56,7 @@ const AppHeaderComponent = () => {
         </nav>
 
         <div className="flex items-center gap-4">
+            <ThemeToggle />
             <Button asChild>
                 <Link href="/admin/login">
                   <LogIn className="mr-2 h-4 w-4" />
@@ -104,7 +106,8 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
             <h1 className="text-xl font-semibold text-foreground">
               {title}
             </h1>
-            <div>
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
               <Button variant="ghost" size="icon" className="rounded-full">
                 <UserCircle className="h-7 w-7 text-muted-foreground" />
               </Button>
@@ -122,7 +125,7 @@ export function LayoutProvider({ children }: { children: React.ReactNode }) {
   return (
     <>
       <AppHeaderComponent />
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className="flex-grow flex flex-col container mx-auto px-4">
         {children}
       </main>
       <AppFooter />

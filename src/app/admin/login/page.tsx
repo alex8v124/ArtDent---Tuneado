@@ -7,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function AdminLoginPage() {
-  return <LoginForm />;
+    return (
+    <div className="flex-grow flex items-center justify-center">
+      <LoginForm />
+    </div>
+  );
 }
