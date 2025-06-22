@@ -26,3 +26,11 @@ export interface Appointment {
   status: 'Completed' | 'Pending' | 'Cancelled';
   action: 'details' | 'reschedule';
 }
+
+export interface AppointmentRequest {
+  id: string;
+  patientName: string;
+  service: string;
+  requestedDate: string;
+  requestedTime: string;
+}

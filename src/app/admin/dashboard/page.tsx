@@ -7,10 +7,11 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { appointments } from '@/data/appointments';
-import { CheckCircle2, Users } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Eye, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Historial de Citas - ArtDent',
@@ -18,18 +19,22 @@ export const metadata: Metadata = {
 };
 
 export default function AdminDashboardPage() {
-  const getStatusIcon = (status: string) => {
-    if (status === 'Completed') {
-      return <CheckCircle2 className="h-5 w-5 text-green-500" />;
+  const getStatusVariant = (status: 'Completed' | 'Pending' | 'Cancelled'): "default" | "secondary" | "destructive" => {
+    switch (status) {
+      case 'Completed':
+        return 'default';
+      case 'Pending':
+        return 'secondary';
+      case 'Cancelled':
+        return 'destructive';
     }
-    // Placeholder for other statuses
-    return <Users className="h-5 w-5 text-gray-500" />;
   };
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>Historial de Citas</CardTitle>
+        <CardDescription>Un registro de todas las citas pasadas y pendientes.</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
@@ -40,7 +45,7 @@ export default function AdminDashboardPage() {
               <TableHead>Hora</TableHead>
               <TableHead>Motivo</TableHead>
               <TableHead>Estado</TableHead>
-              <TableHead className="text-center">Acciones</TableHead>
+              <TableHead className="text-right">Acciones</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -51,18 +56,17 @@ export default function AdminDashboardPage() {
                 <TableCell>{appointment.time}</TableCell>
                 <TableCell>{appointment.reason}</TableCell>
                 <TableCell>
-                  <div className="flex items-center gap-2">
-                     <span>{appointment.status}</span>
-                    {getStatusIcon(appointment.status)}
-                  </div>
+                  <Badge variant={getStatusVariant(appointment.status)}>{appointment.status}</Badge>
                 </TableCell>
-                <TableCell className="text-center space-x-2">
+                <TableCell className="text-right">
                   {appointment.action === 'details' ? (
-                     <Button size="sm" className="bg-yellow-400 hover:bg-yellow-500 text-black">
+                     <Button size="sm" variant="outline">
+                      <Eye className="mr-2 h-4 w-4" />
                       Ver detalles
                     </Button>
                   ) : (
-                    <Button size="sm" variant="default" className="bg-purple-600 hover:bg-purple-700">
+                    <Button size="sm" variant="outline">
+                      <Clock className="mr-2 h-4 w-4" />
                       Reprogramar
                     </Button>
                   )}
