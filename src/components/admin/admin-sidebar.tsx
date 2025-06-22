@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
   ClipboardList,
@@ -10,7 +11,7 @@ import {
   LineChart,
   LogOut,
 } from 'lucide-react';
-import ToothIcon from '@/components/img/tooth-icon';
+import artDentLogo from '@/components/img/img_logo.png';
 import { cn } from '@/lib/utils';
 import { logout } from '@/lib/auth-actions';
 
@@ -26,20 +27,22 @@ const AdminSidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 bg-slate-800 text-white flex flex-col">
-      <div className="p-6 flex items-center gap-3 border-b border-slate-700">
-        <ToothIcon className="h-8 w-8" />
-        <span className="text-xl font-bold">ArtDent</span>
+    <aside className="w-64 bg-sidebar text-sidebar-foreground flex-col border-r border-sidebar-border hidden md:flex">
+      <div className="p-4 flex items-center gap-3 border-b border-sidebar-border h-[65px]">
+        <Image src={artDentLogo} alt="ArtDent Logo" width={36} height={36} />
+        <span className="text-xl font-bold text-foreground">ArtDent</span>
       </div>
-      <nav className="flex-1 px-4 py-6 space-y-2">
+      <nav className="flex-1 px-3 py-4 space-y-1">
         {navItems.map((item) => (
           <Link
             key={item.label}
             href={item.href}
             className={cn(
               'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors',
-              'hover:bg-slate-700 text-slate-300',
-              pathname.startsWith(item.href) && 'bg-slate-900 text-white'
+              'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
+              pathname.startsWith(item.href)
+                ? 'bg-sidebar-primary text-sidebar-primary-foreground font-semibold'
+                : 'text-sidebar-foreground/80'
             )}
           >
             <item.icon className="h-5 w-5" />
@@ -47,14 +50,14 @@ const AdminSidebar = () => {
           </Link>
         ))}
       </nav>
-      <div className="px-4 py-6 border-t border-slate-700">
+      <div className="px-3 py-4 border-t border-sidebar-border">
         <form action={logout}>
           <button
             type="submit"
-            className="flex w-full items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 transition-colors"
+            className="flex w-full items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
           >
             <LogOut className="h-5 w-5" />
-            Salir
+            Cerrar Sesión
           </button>
         </form>
       </div>
