@@ -1,3 +1,5 @@
+"use client"
+
 import type { Metadata } from 'next';
 import {
   Table,
@@ -8,15 +10,18 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { appointments } from '@/data/appointments';
 import { Badge } from '@/components/ui/badge';
-import { Eye, Clock } from 'lucide-react';
+import AppointmentDetailsModal from '@/components/admin/appointment-details-modal';
+import RescheduleModal from '@/components/admin/reschedule-modal';
+import type { Appointment } from '@/types';
 
-export const metadata: Metadata = {
-  title: 'Historial de Citas - ArtDent',
-  description: 'Ver el historial de citas de la clínica.',
-};
+
+// Metadata can still be exported from a client component
+// export const metadata: Metadata = {
+//   title: 'Historial de Citas - ArtDent',
+//   description: 'Ver el historial de citas de la clínica.',
+// };
 
 export default function AdminDashboardPage() {
   const getStatusVariant = (status: 'Completed' | 'Pending' | 'Cancelled'): "default" | "secondary" | "destructive" => {
@@ -49,7 +54,7 @@ export default function AdminDashboardPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {appointments.map((appointment) => (
+            {appointments.map((appointment: Appointment) => (
               <TableRow key={appointment.id}>
                 <TableCell className="font-medium">{appointment.patientName}</TableCell>
                 <TableCell>{appointment.date}</TableCell>
@@ -60,15 +65,9 @@ export default function AdminDashboardPage() {
                 </TableCell>
                 <TableCell className="text-right">
                   {appointment.action === 'details' ? (
-                     <Button size="sm" variant="outline">
-                      <Eye className="mr-2 h-4 w-4" />
-                      Ver detalles
-                    </Button>
+                     <AppointmentDetailsModal appointment={appointment} />
                   ) : (
-                    <Button size="sm" variant="outline">
-                      <Clock className="mr-2 h-4 w-4" />
-                      Reprogramar
-                    </Button>
+                    <RescheduleModal appointment={appointment} />
                   )}
                 </TableCell>
               </TableRow>

@@ -20,9 +20,14 @@ export interface FAQItem {
 export interface Appointment {
   id: string;
   patientName: string;
+  patientDni: string;
   date: string;
   time: string;
   reason: string;
+  description: string;
+  assignedDoctor: string;
+  additionalNotes?: string;
+  doctorObservations?: string;
   status: 'Completed' | 'Pending' | 'Cancelled';
   action: 'details' | 'reschedule';
 }
