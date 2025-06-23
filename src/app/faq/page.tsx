@@ -25,7 +25,7 @@ export default function FaqPage() {
         </motion.div>
         <motion.div
             className="relative z-10 container mx-auto px-4"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.3 }}
         >

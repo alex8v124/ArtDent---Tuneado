@@ -16,7 +16,7 @@ const InteractiveFAQ: React.FC = () => {
       <div className="container mx-auto px-4">
         <motion.div
           className="w-full max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.0, ease: 'easeOut' }}

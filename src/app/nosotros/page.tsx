@@ -5,7 +5,7 @@ import { HeartHandshake, Microscope, Smile } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 1.0, ease: 'easeOut' } },
 };
 
