@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function HomePage() {
   return (
     <div className="space-y-12 md:space-y-16">
-      <section className="relative overflow-hidden text-left py-40 md:py-56 rounded-xl shadow-lg">
+      <section className="relative overflow-hidden text-left py-32 md:py-44 rounded-xl shadow-lg">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://cdn-3.expansion.mx/dims4/default/20a5c17/2147483647/strip/true/crop/2121x1414+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F65%2F06%2F99b822244e65b2723c6fb457cde2%2Fistock-810206880.jpg"
@@ -18,11 +18,8 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-headline font-bold text-white mb-4">
-            Art Dent
+            Bienvenido al Centro de Información ArtDent
           </h1>
-          <h3 className="text-4xl md:text-4xl font-headline font-bold text-white mb-4">
-            Ayudandote a Sonreir
-          </h3>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl">
             Explore nuestros servicios, encuentre respuestas a sus preguntas y obtenga información rápida con nuestro asistente de IA. 
             ¡Su camino hacia una sonrisa más saludable comienza aquí!
