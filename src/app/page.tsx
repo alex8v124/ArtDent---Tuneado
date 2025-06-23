@@ -34,9 +34,9 @@ export default function HomePage() {
     <div className="space-y-12 md:space-y-16">
       <section className="relative overflow-hidden text-left py-32 md:py-44 rounded-xl shadow-lg">
         <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
+          initial={{ opacity: 0, scale: 1.15 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.0, ease: "easeInOut" }}
+          transition={{ duration: 1.5, ease: "circOut" }}
           className="absolute inset-0 z-0"
         >
           <Image

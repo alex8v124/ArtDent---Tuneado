@@ -10,9 +10,9 @@ export default function FaqPage() {
       <section className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16">
         <motion.div
           className="absolute inset-0 z-0"
-          initial={{ opacity: 0, scale: 1.05 }}
+          initial={{ opacity: 0, scale: 1.15 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.0, ease: "easeInOut" }}
+          transition={{ duration: 1.5, ease: "circOut" }}
         >
           <Image
             src="https://clinicadentalbarbastro.com/wp-content/uploads/2020/07/bustillobarbastro_primeravisita.jpg"
