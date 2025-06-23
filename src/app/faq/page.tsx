@@ -7,13 +7,13 @@ import { motion } from 'framer-motion';
 export default function FaqPage() {
   return (
     <div>
-      <motion.section
-        className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16"
-        initial={{ opacity: 0, scale: 1.05 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.0, ease: "easeInOut" }}
-      >
-        <div className="absolute inset-0 z-0">
+      <section className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.0, ease: "easeInOut" }}
+        >
           <Image
             src="https://clinicadentalbarbastro.com/wp-content/uploads/2020/07/bustillobarbastro_primeravisita.jpg"
             alt="Fondo de la sección de preguntas frecuentes"
@@ -22,7 +22,7 @@ export default function FaqPage() {
             quality={95}
             priority
           />
-        </div>
+        </motion.div>
         <motion.div
             className="relative z-10 container mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export default function FaqPage() {
             Encuentra respuestas rápidas a tus dudas más comunes sobre nuestros servicios, políticas y cuidados dentales.
           </p>
         </motion.div>
-      </motion.section>
+      </section>
       <div className="pb-16">
         <InteractiveFAQ />
       </div>

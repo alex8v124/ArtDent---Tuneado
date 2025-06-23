@@ -22,13 +22,13 @@ const staggerContainer = {
 export default function NosotrosPage() {
   return (
     <div>
-      <motion.section
-        className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16"
-        initial={{ opacity: 0, scale: 1.05 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.0, ease: 'easeInOut' }}
-      >
-        <div className="absolute inset-0 z-0">
+      <section className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.0, ease: "easeInOut" }}
+        >
           <Image
             src="https://dentalrosel.com/wp-content/uploads/2023/07/clinica-dental-en-merida-1024x576.jpg"
             alt="Fondo de la sección sobre nosotros"
@@ -37,7 +37,7 @@ export default function NosotrosPage() {
             quality={95}
             priority
           />
-        </div>
+        </motion.div>
         <motion.div
           className="relative z-10 container mx-auto px-4"
           variants={staggerContainer}
@@ -51,7 +51,7 @@ export default function NosotrosPage() {
             Conoce nuestra historia, misión y al equipo de profesionales apasionados por la salud dental.
           </motion.p>
         </motion.div>
-      </motion.section>
+      </section>
 
       <div className="bg-background">
         <div className="container mx-auto px-4 py-16 sm:py-24 lg:py-32">
