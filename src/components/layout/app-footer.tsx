@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShieldCheck, MapPin, Star, BookOpen } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '../ui/scroll-area';
-import PayPalLogo from '@/components/img/paypal-logo';
 import { Progress } from '../ui/progress';
 
 const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -15,13 +15,6 @@ const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-);
-
-
-const VisaIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M22.46.32H16.32L12.54 23.6h6.12l3.8-23.28zM31.26 7.2c-.84-3.84-4.2-6.84-8.88-6.84-4.8 0-7.86 2.52-7.86 6.12 0 2.88 2.28 4.56 3.96 5.4 1.8.96 2.52 1.56 2.52 2.4 0 1.32-1.56 1.8-3.12 1.8-2.28 0-3.24-.48-4.32-1.08l-.84.24-1.2 5.52c.84.48 2.52.84 4.56.84 5.28 0 8.28-2.52 8.28-6.48 0-3.6-2.52-4.92-4.2-5.76-1.56-.72-2.28-1.32-2.28-2.28 0-.96 1.08-1.56 2.76-1.56 1.8 0 2.64.48 3.36.84l.6-.24 1.32-5.4zM37.98 23.6h3.48L38.1 3.48h-3.36l-3 20.12h3.48l.6-4.08h2.52l.36 4.08zM10.02.32L6.12 15.12l-.96-4.56c-.48-1.8-1.56-3.12-3.12-3.84L.24 5.76 0 4.56 3.3.32h6.72z" fill="currentColor"></path>
-    </svg>
 );
 
 const LegalContentModal = ({ triggerText, title, children }: { triggerText: string, title: string, children: React.ReactNode }) => (
@@ -210,10 +203,10 @@ const AppFooter = () => {
                 </div>
 
                 {/* Métodos de Pago */}
-                <div className="flex justify-center items-center flex-wrap gap-4 my-10">
-                    <p className="text-sm">Operamos con:</p>
-                    <VisaIcon className="h-8 w-auto text-gray-300" />
-                    <PayPalLogo className="h-8 w-auto text-gray-300" />
+                <div className="flex justify-center items-center flex-wrap gap-x-6 gap-y-4 my-10">
+                    <p className="text-sm w-full text-center md:w-auto">Operamos con:</p>
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa Logo" width={80} height={26} className="h-auto object-contain" />
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal Logo" width={95} height={26} className="h-auto object-contain" />
                 </div>
 
                 <hr className="my-10 border-gray-700" />
@@ -227,5 +220,3 @@ const AppFooter = () => {
 };
 
 export default AppFooter;
-
-    

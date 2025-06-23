@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: 'cdn-3.expansion.mx',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
