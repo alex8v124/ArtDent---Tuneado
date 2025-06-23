@@ -16,7 +16,7 @@ const staggerContainer = {
 };
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 100 },
   visible: { opacity: 1, y: 0, transition: { duration: 1.0, ease: 'easeOut' } },
 };
 
@@ -26,7 +26,7 @@ export default function ServiciosPage() {
       <section className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16">
         <motion.div
           className="absolute inset-0 z-0"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "circOut" }}
         >
@@ -36,7 +36,6 @@ export default function ServiciosPage() {
             fill
             className="object-cover brightness-50"
             quality={95}
-            priority
           />
         </motion.div>
         <motion.div

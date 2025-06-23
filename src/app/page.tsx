@@ -18,7 +18,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { y: 50, opacity: 0 },
+  hidden: { y: 100, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -40,7 +40,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden text-left py-32 md:py-44 rounded-xl shadow-lg">
         <motion.div
           className="absolute inset-0 z-0"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "circOut" }}
         >
@@ -49,7 +49,6 @@ export default function HomePage() {
             alt="Fondo de clínica dental"
             fill
             className="object-cover brightness-50"
-            priority
           />
         </motion.div>
         <motion.div
