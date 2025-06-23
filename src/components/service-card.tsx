@@ -85,7 +85,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                   </DialogHeader>
                   
                   {service.image && (
-                    <div className="my-6 flex justify-center">
+                    <motion.div
+                      className="my-6 flex justify-center"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                    >
                       <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-lg border aspect-video">
                         <Image 
                           src={service.image} 
@@ -96,7 +101,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                           data-ai-hint={service.dataAiHint || "servicio dental"}
                         />
                       </div>
-                    </div>
+                    </motion.div>
                   )}
 
                   <div className="grid lg:grid-cols-3 gap-8 mt-8">

@@ -79,14 +79,16 @@ export default function NosotrosPage() {
                   Desde nuestros inicios, nos hemos dedicado a utilizar la tecnología más avanzada y a mantenernos al día con las últimas técnicas odontológicas para garantizar que nuestros pacientes reciban la mejor atención posible. Nuestro viaje ha sido impulsado por la pasión y el compromiso con cada sonrisa que cuidamos.
                 </p>
               </div>
-              <div className="order-1 md:order-2">
-                <Image
-                  src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/359761464_790060936239998_6431677811396990354_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHJYtpEXx_0upoCrJILd1eW7WGCvJXNjwTtYYK8lc2PBNq_6Q0wnuLWA9pTrtSKZDjpIG8prRauKonCG8UyaCZq&_nc_ohc=U9hWn-k7YzIQ7kNvwEIJI2C&_nc_oc=AdlKIDuM_FmK0AF0gPVAxMqJQokQihBbILH8gva3B8a6f2hv8EDqEI9dosIXcukM7G8&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=b6gRECSe6o-uguzdmK6gYg&oh=00_AfNvM8WH3Js1c_hYCTxmwVe2DiluCjOKeWnr_0oIqyoIIA&oe=685EB3FD"
-                  alt="Interior de la clínica ArtDent"
-                  width={600}
-                  height={450}
-                  className="rounded-xl shadow-lg"
-                />
+              <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-lg">
+                <motion.div whileHover={{ scale: 1.05 }} transition={{ type: 'spring', stiffness: 200, damping: 20 }}>
+                  <Image
+                    src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/359761464_790060936239998_6431677811396990354_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHJYtpEXx_0upoCrJILd1eW7WGCvJXNjwTtYYK8lc2PBNq_6Q0wnuLWA9pTrtSKZDjpIG8prRauKonCG8UyaCZq&_nc_ohc=U9hWn-k7YzIQ7kNvwEIJI2C&_nc_oc=AdlKIDuM_FmK0AF0gPVAxMqJQokQihBbILH8gva3B8a6f2hv8EDqEI9dosIXcukM7G8&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=b6gRECSe6o-uguzdmK6gYg&oh=00_AfNvM8WH3Js1c_hYCTxmwVe2DiluCjOKeWnr_0oIqyoIIA&oe=685EB3FD"
+                    alt="Interior de la clínica ArtDent"
+                    width={600}
+                    height={450}
+                    className="w-full h-auto"
+                  />
+                </motion.div>
               </div>
             </motion.div>
 
@@ -98,14 +100,16 @@ export default function NosotrosPage() {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeIn}
             >
-              <div>
-                <Image
-                  src="https://clinicadentaluc.es/wp-content/uploads/2021/01/uc-dentistas-equipo-con-mascarillas.jpg"
-                  alt="Equipo de ArtDent"
-                  width={600}
-                  height={450}
-                  className="rounded-xl shadow-lg"
-                />
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <motion.div whileHover={{ scale: 1.05 }} transition={{ type: 'spring', stiffness: 200, damping: 20 }}>
+                  <Image
+                    src="https://clinicadentaluc.es/wp-content/uploads/2021/01/uc-dentistas-equipo-con-mascarillas.jpg"
+                    alt="Equipo de ArtDent"
+                    width={600}
+                    height={450}
+                    className="w-full h-auto"
+                  />
+                </motion.div>
               </div>
               <div>
                 <h2 className="text-3xl font-headline font-bold text-primary mb-4">Nuestro Equipo</h2>
