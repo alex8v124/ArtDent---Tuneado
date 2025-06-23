@@ -27,7 +27,25 @@ const nextConfig: NextConfig = {
         hostname: 'upload.wikimedia.org',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'clinicalikedental.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'mxn.iseie.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'clinicadentalbarbastro.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

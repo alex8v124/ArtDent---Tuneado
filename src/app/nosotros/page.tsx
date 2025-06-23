@@ -14,7 +14,7 @@ export default function NosotrosPage() {
       <section className="relative overflow-hidden text-center py-28 md:py-36 rounded-xl shadow-lg mb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://cdn-3.expansion.mx/dims4/default/20a5c17/2147483647/strip/true/crop/2121x1414+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F65%2F06%2F99b822244e65b2723c6fb457cde2%2Fistock-810206880.jpg"
+            src="https://mxn.iseie.com/wp-content/uploads/2023/12/Diplomado-En-Gestion-de-Clinicas-Odontologicas.jpg"
             alt="Fondo de la sección sobre nosotros"
             fill
             className="object-cover brightness-50"
