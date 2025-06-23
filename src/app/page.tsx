@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Stethoscope, HelpCircle, Users } from 'lucide-react';
+import { Stethoscope, HelpCircle, Users, Phone } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HomePage() {
@@ -17,13 +17,22 @@ export default function HomePage() {
           />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-headline font-bold text-white mb-4">
-            Bienvenido al Centro de Información ArtDent
+          <h1 className="text-4xl md:text-6xl font-headline font-bold text-white mb-4">
+            Art Dent
           </h1>
+          <h3 className="text-4xl md:text-4xl font-headline font-bold text-white mb-4">
+            Ayudandote a Sonreir
+          </h3>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl">
             Explore nuestros servicios, encuentre respuestas a sus preguntas y obtenga información rápida con nuestro asistente de IA. 
             ¡Su camino hacia una sonrisa más saludable comienza aquí!
           </p>
+          <Button asChild className="mt-8" size="lg">
+            <Link href="/reservar-cita">
+              <Phone className="mr-2 h-5 w-5" />
+              Reserva tu cita aquí
+            </Link>
+          </Button>
         </div>
       </section>
 
