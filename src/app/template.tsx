@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 import AppHeader from '@/components/layout/app-header';
 import AppFooter from '@/components/layout/app-footer';
 import AdminSidebar from '@/components/admin/admin-sidebar';
@@ -16,6 +17,21 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
     const isAuthRoute = ['/admin/login', '/admin/forgot-password'].includes(pathname);
     const isAdminDashboardRoute = pathname.startsWith('/admin') && !isAuthRoute;
+
+    const variants = {
+        hidden: { opacity: 0, y: 15 },
+        enter: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -15 },
+    };
+    
+    const transitionProps = {
+        key: pathname,
+        variants: variants,
+        initial: "hidden",
+        animate: "enter",
+        exit: "exit",
+        transition: { type: "tween", ease: 'easeInOut', duration: 0.4 }
+    };
 
     if (isAdminDashboardRoute) {
         const pageTitles: { [key: string]: string } = {
@@ -41,18 +57,38 @@ export default function Template({ children }: { children: React.ReactNode }) {
                             </Button>
                         </div>
                     </header>
-                    <main className="flex-1 p-6 overflow-y-auto">{children}</main>
+                    <AnimatePresence mode="wait" initial={false}>
+                        <motion.main
+                            {...transitionProps}
+                            className="flex-1 p-6 overflow-y-auto"
+                        >
+                            {children}
+                        </motion.main>
+                    </AnimatePresence>
                 </div>
             </div>
         );
     }
 
-    return (
-        <div className="flex flex-col min-h-screen">
-            <AppHeader />
+    if (isAuthRoute) {
+        return (
             <main className="flex-grow flex flex-col">
                 {children}
             </main>
+        )
+    }
+
+    return (
+        <div className="flex flex-col min-h-screen">
+            <AppHeader />
+            <AnimatePresence mode="wait" initial={false}>
+                <motion.main
+                    {...transitionProps}
+                    className="flex-grow flex flex-col"
+                >
+                    {children}
+                </motion.main>
+            </AnimatePresence>
             <AppFooter />
             <ChatbotWidget />
         </div>
