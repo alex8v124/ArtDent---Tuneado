@@ -21,6 +21,7 @@ const navItems = [
 
 const AppHeader = () => {
   const pathname = usePathname();
+  const isAuthRoute = ['/admin/login', '/admin/forgot-password'].includes(pathname);
 
   return (
     <header className="bg-background/80 backdrop-blur-sm text-foreground shadow-sm sticky top-0 z-50">
@@ -64,14 +65,16 @@ const AppHeader = () => {
 
         <div className="flex items-center gap-4">
             <ThemeToggle />
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button asChild>
-                    <Link href="/admin/login">
-                      <LogIn className="mr-2 h-4 w-4" />
-                      Iniciar Sesión
-                    </Link>
-                </Button>
-            </motion.div>
+            {!isAuthRoute && (
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button asChild>
+                      <Link href="/admin/login">
+                        <LogIn className="mr-2 h-4 w-4" />
+                        Iniciar Sesión
+                      </Link>
+                  </Button>
+              </motion.div>
+            )}
         </div>
       </div>
     </header>

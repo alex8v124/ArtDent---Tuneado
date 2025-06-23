@@ -48,14 +48,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
         );
     }
 
-    if (isAuthRoute) {
-        return (
-            <main className="flex-grow flex flex-col">
-                {children}
-            </main>
-        )
-    }
-
     return (
         <div className="flex flex-col min-h-screen">
             <AppHeader />
