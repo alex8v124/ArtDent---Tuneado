@@ -1,2 +1,7 @@
-// This file is intentionally left blank to disable the middleware
-// and diagnose a server start-up issue.
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+// This function can be marked `async` if using `await` inside
+export function middleware(request: NextRequest) {
+  return NextResponse.next();
+}
