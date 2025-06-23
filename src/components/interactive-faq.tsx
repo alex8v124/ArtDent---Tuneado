@@ -19,7 +19,7 @@ const InteractiveFAQ: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 1.0, ease: 'easeOut' }}
         >
           <Accordion type="single" collapsible>
             {faqs.map((faqItem) => (
