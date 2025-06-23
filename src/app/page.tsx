@@ -1,6 +1,7 @@
+
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Stethoscope, HelpCircle, Bot } from 'lucide-react';
+import { Stethoscope, HelpCircle, Users } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HomePage() {
@@ -41,7 +42,7 @@ export default function HomePage() {
           </Link>
           <Link href="/nosotros" className="block group">
             <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col items-center text-center">
-              <Bot className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
+              <Users className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Sobre Nosotros</h3>
               <p className="text-muted-foreground mb-4 flex-grow">Descubra toda la informacion sobre nuestra clinica, doctores y reseñas de pacientes.</p>
               <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
