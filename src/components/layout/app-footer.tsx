@@ -64,7 +64,7 @@ const AppFooter = () => {
 
     return (
         <footer className="bg-[#111827] text-gray-300">
-            <div className="container mx-auto px-6 py-16">
+            <div className="container mx-auto px-6 py-12">
                 <div className="md:flex md:justify-between">
                     {/* Columnas de Enlaces */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:flex-1">
