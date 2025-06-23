@@ -11,11 +11,8 @@ import {
 
 const InteractiveFAQ: React.FC = () => {
   return (
-    <section id="faq" className="py-12 md:py-16">
+    <section id="faq">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-10 text-primary">
-          Preguntas Frecuentes
-        </h2>
         <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
           {faqs.map((faqItem) => (
             <AccordionItem key={faqItem.id} value={faqItem.id} className="border-b border-border last:border-b-0 mb-2 rounded-lg shadow-sm bg-card overflow-hidden">
