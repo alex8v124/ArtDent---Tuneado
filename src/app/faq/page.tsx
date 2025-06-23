@@ -1,9 +1,6 @@
 import InteractiveFAQ from '@/components/interactive-faq';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Preguntas Frecuentes - ArtDent',
@@ -13,7 +10,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <div>
-      <section className="relative overflow-hidden text-left py-20 md:py-28 rounded-xl shadow-lg mb-16">
+      <section className="relative overflow-hidden text-center py-28 md:py-36 rounded-xl shadow-lg mb-16">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://cdn-3.expansion.mx/dims4/default/20a5c17/2147483647/strip/true/crop/2121x1414+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F65%2F06%2F99b822244e65b2723c6fb457cde2%2Fistock-810206880.jpg"
@@ -26,15 +23,9 @@ export default function FaqPage() {
           <h1 className="text-4xl md:text-6xl font-headline font-bold text-white mb-4">
             Preguntas Frecuentes
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl">
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
             Encuentra respuestas rápidas a tus dudas más comunes sobre nuestros servicios, políticas y cuidados dentales.
           </p>
-           <Button asChild className="mt-8" size="lg">
-            <Link href="/reservar-cita">
-              <Phone className="mr-2 h-5 w-5" />
-              Reserva tu cita aquí
-            </Link>
-          </Button>
         </div>
       </section>
       <div className="pb-16">
