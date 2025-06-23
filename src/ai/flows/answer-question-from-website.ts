@@ -81,7 +81,7 @@ Para hacerlo, primero debes recopilar TODA la información necesaria:
 5. El servicio dental que necesita.
 6. La fecha y hora que prefiere.
 
-No inventes ningún dato. Pregunta al usuario por cada pieza de información si no la proporciona. Una vez que tengas todos los detalles, confírmalos con el usuario antes de llamar a la herramienta.
+No inventes ningún dato. Pregunta al usuario por cada pieza de información si no la proporciona. Una vez que tengas todos los detalles, confírmalos con el usuario antes de llamar a la herramienta. Después de ejecutar la herramienta, usa el mensaje de éxito o fracaso de la herramienta para formular tu respuesta final al usuario.
 
 Contenido del Sitio Web:
 {{{websiteContent}}}
@@ -109,16 +109,15 @@ const answerQuestionFromWebsiteFlow = ai.defineFlow(
     const toolCalls = response.toolCalls();
 
     if (toolCalls.length > 0) {
-      // Asumimos una llamada a herramienta a la vez por simplicidad.
-      const toolResponse = await ai.runTool(toolCalls[0]);
-
-      // Volvemos a llamar al modelo con el resultado de la herramienta para obtener una respuesta final en lenguaje natural.
-      const finalResponse = await prompt(input, { toolResponse });
+      // Asumimos una llamada a herramienta a la vez por simplicidad y la ejecutamos.
+      const toolResponsePart = await ai.runTool(toolCalls[0]);
       
-      if (finalResponse.output === null) {
-          throw new Error('El modelo de IA no generó una respuesta final después de usar la herramienta.');
-      }
-      return finalResponse.output;
+      // Extraemos el resultado de la herramienta.
+      const toolOutput = toolResponsePart.toolResponse.output as { success: boolean; message: string };
+
+      // Devolvemos el mensaje de la herramienta directamente como la respuesta final.
+      // Esto es más eficiente que hacer otra llamada al LLM solo para formatear la salida.
+      return { answer: toolOutput.message };
     }
     
     if (response.output === null) {
