@@ -68,7 +68,7 @@ const AiAssistant: React.FC = () => {
       className="bg-background"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      transition={{ duration: 0.8, ease: 'easeInOut' }}
     >
       <div className="container mx-auto px-4">
         <Card className="max-w-2xl mx-auto shadow-xl rounded-xl overflow-hidden">

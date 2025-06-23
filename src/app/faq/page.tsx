@@ -11,7 +11,7 @@ export default function FaqPage() {
         className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16"
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
+        transition={{ duration: 1.0, ease: "easeInOut" }}
       >
         <div className="absolute inset-0 z-0">
           <Image
@@ -27,7 +27,7 @@ export default function FaqPage() {
             className="relative z-10 container mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
         >
           <h1 className="text-4xl md:text-6xl font-headline font-bold text-white mb-4">
             Preguntas Frecuentes

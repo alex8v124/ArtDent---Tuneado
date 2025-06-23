@@ -29,7 +29,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         initial: "hidden",
         animate: "enter",
         exit: "exit",
-        transition: { type: "tween", ease: 'easeInOut', duration: 0.4 }
+        transition: { type: "tween", ease: 'easeInOut', duration: 0.6 }
     };
 
     if (isAdminDashboardRoute) {

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
 };
 
 const staggerContainer = {
@@ -14,7 +14,7 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.3,
     },
   },
 };
@@ -26,7 +26,7 @@ export default function NosotrosPage() {
         className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16"
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: 'easeInOut' }}
+        transition={{ duration: 1.0, ease: 'easeInOut' }}
       >
         <div className="absolute inset-0 z-0">
           <Image

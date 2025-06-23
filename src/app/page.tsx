@@ -11,7 +11,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.3,
     },
   },
 };
@@ -22,7 +22,7 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.8,
       ease: "easeOut",
     },
   },
@@ -36,7 +36,7 @@ export default function HomePage() {
         <motion.div
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          transition={{ duration: 1.0, ease: "easeInOut" }}
           className="absolute inset-0 z-0"
         >
           <Image
