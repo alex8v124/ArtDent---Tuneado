@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -10,7 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Bot, Loader2, Send, X, MessageSquare } from 'lucide-react';
+import { Bot, Loader2, Send, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { answerQuestionFromWebsite, type AnswerQuestionFromWebsiteOutput } from '@/ai/flows/answer-question-from-website';
@@ -30,7 +29,7 @@ interface Message {
 const ChatbotWidget: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
-        { type: 'ai', text: "¡Hola! Soy el asistente de ArtDent. ¿En qué puedo ayudarte hoy?" }
+        { type: 'ai', text: "¡Hola! Soy Denty, el asistente virtual de ArtDent. ¿En qué puedo ayudarte hoy?" }
     ]);
     const [isLoading, setIsLoading] = useState(false);
     const { toast } = useToast();
@@ -169,7 +168,7 @@ const ChatbotWidget: React.FC = () => {
                     onClick={() => setIsOpen(true)}
                     aria-label="Abrir chat"
                 >
-                    <MessageSquare size={32} />
+                    <Bot size={32} />
                 </Button>
             </div>
         </div>
