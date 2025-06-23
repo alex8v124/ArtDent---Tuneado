@@ -48,12 +48,11 @@ export default function NosotrosPage() {
               </div>
               <div className="order-1 md:order-2">
                 <Image
-                  src="https://placehold.co/600x450.png"
+                  src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/359761464_790060936239998_6431677811396990354_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHJYtpEXx_0upoCrJILd1eW7WGCvJXNjwTtYYK8lc2PBNq_6Q0wnuLWA9pTrtSKZDjpIG8prRauKonCG8UyaCZq&_nc_ohc=U9hWn-k7YzIQ7kNvwEIJI2C&_nc_oc=AdlKIDuM_FmK0AF0gPVAxMqJQokQihBbILH8gva3B8a6f2hv8EDqEI9dosIXcukM7G8&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=b6gRECSe6o-uguzdmK6gYg&oh=00_AfNvM8WH3Js1c_hYCTxmwVe2DiluCjOKeWnr_0oIqyoIIA&oe=685EB3FD"
                   alt="Interior de la clínica ArtDent"
                   width={600}
                   height={450}
                   className="rounded-xl shadow-lg"
-                  data-ai-hint="clinic interior"
                 />
               </div>
             </div>
@@ -62,12 +61,11 @@ export default function NosotrosPage() {
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-20 md:mb-32">
               <div>
                 <Image
-                  src="https://placehold.co/600x450.png"
+                  src="https://clinicadentaluc.es/wp-content/uploads/2021/01/uc-dentistas-equipo-con-mascarillas.jpg"
                   alt="Equipo de ArtDent"
                   width={600}
                   height={450}
                   className="rounded-xl shadow-lg"
-                  data-ai-hint="dental team"
                 />
               </div>
               <div>

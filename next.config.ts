@@ -101,6 +101,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'scontent-lim1-1.xx.fbcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'clinicadentaluc.es',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
