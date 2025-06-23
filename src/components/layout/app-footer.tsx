@@ -213,6 +213,7 @@ const AppFooter = () => {
 
                 <div className="text-center text-xs text-gray-500">
                     <p>&copy; {new Date().getFullYear()} Clínica ArtDent. Todos los derechos reservados. | RUC: 20100123763</p>
+                    <p className="mt-2">Desarrollado por Empresa All-in Dev Solutions S.R.L.</p>
                 </div>
             </div>
         </footer>
