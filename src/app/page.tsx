@@ -39,10 +39,10 @@ export default function HomePage() {
     <div className="space-y-12 md:space-y-16">
       <section className="relative overflow-hidden text-left py-32 md:py-44 rounded-xl shadow-lg">
         <motion.div
-          initial={{ opacity: 0, scale: 1.15 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "circOut" }}
           className="absolute inset-0 z-0"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: "circOut" }}
         >
           <Image
             src="https://cdn-3.expansion.mx/dims4/default/20a5c17/2147483647/strip/true/crop/2121x1414+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F65%2F06%2F99b822244e65b2723c6fb457cde2%2Fistock-810206880.jpg"
@@ -145,7 +145,7 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }
