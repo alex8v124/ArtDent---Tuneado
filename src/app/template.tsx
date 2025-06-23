@@ -9,6 +9,7 @@ import AdminSidebar from '@/components/admin/admin-sidebar';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { UserCircle } from 'lucide-react';
+import ChatbotWidget from '@/components/chatbot-widget';
 
 export default function Template({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -53,6 +54,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                 {children}
             </main>
             <AppFooter />
+            <ChatbotWidget />
         </div>
     );
 }
