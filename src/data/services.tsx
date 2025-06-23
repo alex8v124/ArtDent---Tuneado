@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Service } from '@/types';
 import { Stethoscope, Sparkles, SmilePlus, Activity, ShieldCheck, Anchor } from 'lucide-react';
@@ -9,7 +10,7 @@ export const services: Service[] = [
     shortDescription: 'Exámenes completos de salud bucal y cuidado preventivo.',
     longDescription: 'Nuestras revisiones generales incluyen un examen completo de sus dientes, encías y boca, junto con limpieza profesional y detección de cáncer oral. Nos enfocamos en el cuidado preventivo para ayudarle a mantener una salud bucal óptima y detectar cualquier problema potencial de manera temprana.',
     icon: <Stethoscope className="h-10 w-10 text-primary" />,
-    image: "https://placehold.co/800x300.png",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGa7e2uFstbrbxzkgw8K40pwKCVV9p68oIDA&s",
     dataAiHint: "revisión dental",
     price: 50,
   },
