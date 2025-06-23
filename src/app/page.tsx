@@ -145,7 +145,7 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }
