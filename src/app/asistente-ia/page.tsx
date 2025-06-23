@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AsistenteIaPage() {
   return (
-    <div className="py-8">
+    <div className="py-12 md:py-16">
       <AiAssistant />
     </div>
   );

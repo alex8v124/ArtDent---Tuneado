@@ -13,6 +13,7 @@ import { answerQuestionFromWebsite, type AnswerQuestionFromWebsiteOutput } from 
 import { artDentWebsiteContent } from '@/data/website-content';
 import { Bot, Loader2, Send, User } from 'lucide-react';
 import { ScrollArea } from './ui/scroll-area';
+import { motion } from 'framer-motion';
 
 const formSchema = z.object({
   question: z.string().min(5, { message: "La pregunta debe tener al menos 5 caracteres." }).max(200, { message: "La pregunta debe tener como máximo 200 caracteres." }),
@@ -62,7 +63,13 @@ const AiAssistant: React.FC = () => {
   };
 
   return (
-    <section id="ai-assistant" className="py-12 md:py-16 bg-background">
+    <motion.section 
+      id="ai-assistant" 
+      className="bg-background"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+    >
       <div className="container mx-auto px-4">
         <Card className="max-w-2xl mx-auto shadow-xl rounded-xl overflow-hidden">
           <CardHeader className="bg-primary text-primary-foreground p-6">
@@ -145,7 +152,7 @@ const AiAssistant: React.FC = () => {
           </CardFooter>
         </Card>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
