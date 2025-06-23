@@ -39,23 +39,23 @@ export default function HomePage() {
               </Button>
             </div>
           </Link>
-          <Link href="/faq" className="block group">
+          <Link href="/nosotros" className="block group">
             <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col items-center text-center">
-              <HelpCircle className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Preguntas Frecuentes</h3>
-              <p className="text-muted-foreground mb-4 flex-grow">Encuentre respuestas a las dudas más comunes sobre nuestros procedimientos, horarios y políticas.</p>
+              <Bot className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Sobre Nosotros</h3>
+              <p className="text-muted-foreground mb-4 flex-grow">Descubra toda la informacion sobre nuestra clinica, doctores y reseñas de pacientes.</p>
               <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                Consultar FAQ
+                Ver Nosotros
               </Button>
             </div>
           </Link>
-          <Link href="/asistente-ia" className="block group">
+          <Link href="/faq" className="block group">
             <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col items-center text-center">
-              <Bot className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Asistente IA</h3>
-              <p className="text-muted-foreground mb-4 flex-grow">Hable con nuestro asistente virtual para obtener respuestas rápidas a sus consultas sobre ArtDent.</p>
+              <HelpCircle className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-headline font-semibold text-primary mb-3">FAQ</h3>
+              <p className="text-muted-foreground mb-4 flex-grow">Consulte cualquier duda o consulta en nuestra seccion de preguntas frecuentes.</p>
               <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                Hablar con IA
+                Consultar FAQ
               </Button>
             </div>
           </Link>
