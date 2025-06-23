@@ -1,12 +1,11 @@
 
 import type { Metadata } from 'next';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Image from 'next/image';
-import { Users, Building } from 'lucide-react';
+import { HeartHandshake, Microscope, Smile } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Nosotros - ArtDent',
-  description: 'Conozca más sobre la historia, misión y el equipo de la clínica dental ArtDent.',
+  description: 'Conozca más sobre la historia, misión, valores y el equipo de la clínica dental ArtDent.',
 };
 
 export default function NosotrosPage() {
@@ -33,48 +32,76 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 pb-16">
-        <Card className="max-w-4xl mx-auto shadow-lg rounded-xl">
-          <CardHeader className="text-center p-8 bg-primary/10">
-            <Building className="mx-auto h-16 w-16 text-primary" />
-            <CardTitle className="text-4xl font-headline text-primary mt-4">Sobre ArtDent</CardTitle>
-            <CardDescription className="text-lg mt-2 text-muted-foreground">Su sonrisa, nuestra pasión.</CardDescription>
-          </CardHeader>
-          <CardContent className="p-8 space-y-8">
-              <div className="text-center">
-                  <h2 className="text-2xl font-headline font-semibold text-foreground mb-4">Nuestra Historia</h2>
-                  <p className="text-muted-foreground leading-relaxed">
-                      Fundada con la misión de proveer cuidado dental excepcional en un ambiente cálido y profesional, ArtDent ha crecido hasta convertirse en un pilar de la comunidad. Desde nuestros inicios, nos hemos dedicado a utilizar la tecnología más avanzada y a mantenernos al día con las últimas técnicas odontológicas para garantizar que nuestros pacientes reciban la mejor atención posible.
-                  </p>
+      <div className="bg-background">
+        <div className="container mx-auto px-4 py-16 sm:py-24 lg:py-32">
+          <div className="max-w-5xl mx-auto">
+            {/* Section 1: History */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-20 md:mb-32">
+              <div className="order-2 md:order-1">
+                <h2 className="text-3xl font-headline font-bold text-primary mb-4">Nuestra Historia</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Fundada con la misión de proveer cuidado dental excepcional en un ambiente cálido y profesional, ArtDent ha crecido hasta convertirse en un pilar de la comunidad.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Desde nuestros inicios, nos hemos dedicado a utilizar la tecnología más avanzada y a mantenernos al día con las últimas técnicas odontológicas para garantizar que nuestros pacientes reciban la mejor atención posible. Nuestro viaje ha sido impulsado por la pasión y el compromiso con cada sonrisa que cuidamos.
+                </p>
               </div>
-              <div className="relative my-8">
-                <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                  <div className="w-full border-t border-border" />
+              <div className="order-1 md:order-2">
+                <Image
+                  src="https://placehold.co/600x450.png"
+                  alt="Interior de la clínica ArtDent"
+                  width={600}
+                  height={450}
+                  className="rounded-xl shadow-lg"
+                  data-ai-hint="clinic interior"
+                />
+              </div>
+            </div>
+
+            {/* Section 2: Team */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-20 md:mb-32">
+              <div>
+                <Image
+                  src="https://placehold.co/600x450.png"
+                  alt="Equipo de ArtDent"
+                  width={600}
+                  height={450}
+                  className="rounded-xl shadow-lg"
+                  data-ai-hint="dental team"
+                />
+              </div>
+              <div>
+                <h2 className="text-3xl font-headline font-bold text-primary mb-4">Nuestro Equipo</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Nuestro equipo está compuesto por dentistas, higienistas y personal administrativo altamente cualificados y apasionados por la salud dental. Cada miembro está comprometido a hacer que su visita sea lo más cómoda y agradable posible. Creemos en la educación continua y en un enfoque centrado en el paciente para construir relaciones duraderas basadas en la confianza y el cuidado excepcional.
+                </p>
+              </div>
+            </div>
+
+            {/* Section 3: Values */}
+            <div>
+              <h2 className="text-3xl font-headline font-bold text-primary text-center mb-12">Nuestros Valores</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="text-center p-6 bg-card rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  <HeartHandshake className="mx-auto h-12 w-12 text-accent mb-4" />
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Compromiso</h3>
+                  <p className="text-sm text-muted-foreground">Dedicados a tu bienestar y a ofrecerte el mejor cuidado posible en cada visita.</p>
                 </div>
-                <div className="relative flex justify-center">
-                  <span className="bg-background px-3 text-primary">
-                    <Users className="h-6 w-6" />
-                  </span>
+                <div className="text-center p-6 bg-card rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  <Microscope className="mx-auto h-12 w-12 text-accent mb-4" />
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Innovación</h3>
+                  <p className="text-sm text-muted-foreground">Utilizamos la última tecnología y técnicas para tratamientos eficaces y cómodos.</p>
+                </div>
+                <div className="text-center p-6 bg-card rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  <Smile className="mx-auto h-12 w-12 text-accent mb-4" />
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Confianza</h3>
+                  <p className="text-sm text-muted-foreground">Construimos relaciones transparentes y duraderas con nuestros pacientes.</p>
                 </div>
               </div>
-              <div className="text-center">
-                  <h2 className="text-2xl font-headline font-semibold text-foreground mb-4">Nuestro Equipo</h2>
-                  <p className="text-muted-foreground leading-relaxed">
-                      Nuestro equipo está compuesto por dentistas, higienistas y personal administrativo altamente cualificados y apasionados por la salud dental. Cada miembro de nuestro equipo está comprometido a hacer que su visita sea lo más cómoda y agradable posible. Creemos en la educación continua y en un enfoque centrado en el paciente para construir relaciones duraderas basadas en la confianza y el cuidado excepcional.
-                  </p>
-              </div>
-              <div className="mt-10 flex justify-center">
-                  <Image 
-                      src="https://placehold.co/800x400.png"
-                      alt="Equipo de ArtDent"
-                      width={800}
-                      height={400}
-                      className="rounded-lg shadow-md"
-                      data-ai-hint="dental team"
-                  />
-              </div>
-          </CardContent>
-        </Card>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   );
