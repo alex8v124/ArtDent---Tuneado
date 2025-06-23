@@ -49,13 +49,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                 
                 {service.image && (
                   <div className="my-6 flex justify-center">
-                    <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-lg border">
+                    <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-lg border aspect-video">
                       <Image 
                         src={service.image} 
                         alt={service.title} 
                         width={800} 
-                        height={300} 
-                        className="w-full h-auto"
+                        height={450} 
+                        className="w-full h-full object-cover"
                         data-ai-hint={service.dataAiHint || "servicio dental"}
                       />
                     </div>
