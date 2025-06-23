@@ -300,7 +300,7 @@ const AppointmentForm: React.FC = () => {
               
             </CardContent>
             <div className="px-6">
-              <Button type="submit" className="w-full text-lg py-7 bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold">
+              <Button type="submit" className="w-full text-lg py-7 bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold transition-transform duration-200 hover:scale-105 active:scale-95">
                 <PayPalLogo className="h-6 w-auto mr-2 fill-current" />
               </Button>
             </div>

@@ -64,7 +64,7 @@ export default function HomePage() {
             ¡Su camino hacia una sonrisa más saludable comienza aquí!
           </motion.p>
           <motion.div variants={itemVariants}>
-            <Button asChild className="mt-8" size="lg">
+            <Button asChild className="mt-8 transition-transform duration-200 hover:scale-105 active:scale-95" size="lg">
               <Link href="/reservar-cita">
                 <Phone className="mr-2 h-5 w-5" />
                 Reserva tu cita aquí
@@ -85,11 +85,11 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.div variants={itemVariants}>
             <Link href="/servicios" className="block group">
-              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col items-center text-center">
+              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center hover:-translate-y-2">
                 <Stethoscope className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Nuestros Servicios</h3>
                 <p className="text-muted-foreground mb-4 flex-grow">Descubra la gama completa de tratamientos dentales que ofrecemos para cuidar su salud bucal.</p>
-                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-200 transform hover:scale-105 active:scale-95">
                   Ver Servicios
                 </Button>
               </div>
@@ -97,11 +97,11 @@ export default function HomePage() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Link href="/nosotros" className="block group">
-              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col items-center text-center">
+              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center hover:-translate-y-2">
                 <Users className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Sobre Nosotros</h3>
                 <p className="text-muted-foreground mb-4 flex-grow">Descubra toda la informacion sobre nuestra clinica, doctores y reseñas de pacientes.</p>
-                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-200 transform hover:scale-105 active:scale-95">
                   Ver Nosotros
                 </Button>
               </div>
@@ -109,11 +109,11 @@ export default function HomePage() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Link href="/faq" className="block group">
-              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow h-full flex flex-col items-center text-center">
+              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center hover:-translate-y-2">
                 <HelpCircle className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-2xl font-headline font-semibold text-primary mb-3">FAQ</h3>
                 <p className="text-muted-foreground mb-4 flex-grow">Consulte cualquier duda o consulta en nuestra seccion de preguntas frecuentes.</p>
-                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-200 transform hover:scale-105 active:scale-95">
                   Consultar FAQ
                 </Button>
               </div>

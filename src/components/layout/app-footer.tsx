@@ -101,7 +101,7 @@ const AppFooter = () => {
                                 <li className="mt-4">
                                      <Dialog>
                                         <DialogTrigger asChild>
-                                            <button className="border border-gray-400 rounded-md p-2 flex items-center justify-center gap-2 hover:bg-gray-700 transition-colors text-sm w-full">
+                                            <button className="border border-gray-400 rounded-md p-2 flex items-center justify-center gap-2 hover:bg-gray-700 transition-all text-sm w-full transform hover:scale-105 active:scale-95">
                                                 <BookOpen className="h-5 w-5 flex-shrink-0" />
                                                 <span className="text-center">Libro de Reclamaciones</span>
                                             </button>
@@ -134,8 +134,8 @@ const AppFooter = () => {
                     <div className="mt-8 md:mt-0 md:ml-12">
                         <h3 className="font-bold text-white mb-4 tracking-wide uppercase">Síguenos</h3>
                         <div className="flex space-x-4">
-                            <a href="https://www.instagram.com/artdent._/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors"><InstagramIcon /></a>
-                            <a href="https://www.facebook.com/ARTDENT000" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors"><FacebookIcon /></a>
+                            <a href="https://www.instagram.com/artdent._/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-all transform hover:scale-110"><InstagramIcon /></a>
+                            <a href="https://www.facebook.com/ARTDENT000" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-all transform hover:scale-110"><FacebookIcon /></a>
                         </div>
                     </div>
                 </div>
@@ -144,18 +144,18 @@ const AppFooter = () => {
                 
                 {/* Indicadores de Confianza */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-sm">
-                    <div className="flex items-center justify-center gap-3">
+                    <div className="flex items-center justify-center gap-3 transition-transform hover:scale-105">
                         <ShieldCheck className="h-7 w-7 text-green-400"/>
-                        <span>Pagos 100% Seguros</span>
+                        <span className="transition-colors">Pagos 100% Seguros</span>
                     </div>
-                    <a href="https://maps.app.goo.gl/XKP4sGXNDNKpaZMb6" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 hover:text-white transition-colors">
+                    <a href="https://maps.app.goo.gl/XKP4sGXNDNKpaZMb6" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 hover:text-white transition-all hover:scale-105">
                         <MapPin className="h-7 w-7 text-blue-400"/>
                         <span>Ubicación Conveniente</span>
                     </a>
                     {/* Sistema de Calificación */}
                      <Dialog>
                         <DialogTrigger asChild>
-                            <button className="flex items-center justify-center gap-3 hover:text-white transition-colors">
+                            <button className="flex items-center justify-center gap-3 hover:text-white transition-all hover:scale-105">
                                 <Star className="h-7 w-7 text-yellow-400"/>
                                 <span>Servicio de Calidad</span>
                             </button>
@@ -173,7 +173,7 @@ const AppFooter = () => {
                                             <Star
                                                 key={ratingValue}
                                                 className={cn(
-                                                    "h-8 w-8 cursor-pointer transition-colors",
+                                                    "h-8 w-8 cursor-pointer transition-all duration-200 hover:scale-125",
                                                     ratingValue <= (hoveredRating || selectedRating) ? "text-yellow-400 fill-yellow-400" : "text-gray-500"
                                                 )}
                                                 onMouseEnter={() => setHoveredRating(ratingValue)}

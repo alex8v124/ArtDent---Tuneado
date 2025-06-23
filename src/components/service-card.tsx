@@ -22,7 +22,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
-    <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-xl overflow-hidden group">
+    <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden group hover:-translate-y-2">
       <CardHeader className="flex flex-row items-center gap-4 p-6 bg-card">
         {React.cloneElement(service.icon as React.ReactElement, { className: "h-10 w-10 text-primary group-hover:scale-110 transition-transform" })}
         <CardTitle className="text-xl font-headline text-primary">{service.title}</CardTitle>
@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       <CardFooter className="p-6 border-t bg-muted/20">
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="w-full hover:bg-accent hover:text-accent-foreground transition-colors">Leer Más</Button>
+            <Button variant="outline" className="w-full hover:bg-accent hover:text-accent-foreground transition-all duration-200 transform hover:scale-105 active:scale-95">Leer Más</Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-5xl p-0">
             <ScrollArea className="max-h-[90vh]">

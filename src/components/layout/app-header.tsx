@@ -44,7 +44,7 @@ const AppHeader = () => {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-base font-medium transition-colors hover:text-primary",
+                "text-base font-medium transition-all duration-200 hover:text-primary transform hover:scale-105",
                 pathname === item.href ? "text-primary font-semibold" : "text-foreground/70"
               )}
             >
@@ -55,7 +55,7 @@ const AppHeader = () => {
 
         <div className="flex items-center gap-4">
             <ThemeToggle />
-            <Button asChild>
+            <Button asChild className="transition-transform duration-200 hover:scale-105 active:scale-95">
                 <Link href="/admin/login">
                   <LogIn className="mr-2 h-4 w-4" />
                   Iniciar Sesión

@@ -23,7 +23,7 @@ const InteractiveFAQ: React.FC = () => {
         >
           <Accordion type="single" collapsible>
             {faqs.map((faqItem) => (
-              <AccordionItem key={faqItem.id} value={faqItem.id} className="border-b border-border last:border-b-0 mb-2 rounded-lg shadow-sm bg-card overflow-hidden">
+              <AccordionItem key={faqItem.id} value={faqItem.id} className="border-b border-border last:border-b-0 mb-2 rounded-lg shadow-sm bg-card overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <AccordionTrigger className="p-6 text-left font-medium text-lg hover:bg-accent/10 transition-colors focus:bg-accent/20">
                   <span className="flex-1">{faqItem.question}</span>
                 </AccordionTrigger>
