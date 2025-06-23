@@ -10,13 +10,15 @@ export const metadata: Metadata = {
 export default function ServiciosPage() {
   return (
     <div>
-      <section className="relative overflow-hidden text-center py-28 md:py-36 rounded-xl shadow-lg mb-16">
+      <section className="relative overflow-hidden text-center py-32 md:py-44 rounded-xl shadow-lg mb-16">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://clinicalikedental.com/wp-content/uploads/2021/05/clinica-dental-Brunete-profesionales-min-scaled-2560x1280.jpg"
             alt="Fondo de la sección de servicios"
             fill
             className="object-cover brightness-50"
+            quality={95}
+            priority
           />
         </div>
         <div className="relative z-10 container mx-auto px-4">
