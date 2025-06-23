@@ -205,8 +205,8 @@ const AppFooter = () => {
                 {/* Métodos de Pago */}
                 <div className="flex justify-center items-center flex-wrap gap-x-6 gap-y-4 my-10">
                     <p className="text-sm w-full text-center md:w-auto">Operamos con:</p>
-                    <Image src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa Logo" width={50} height={16} className="h-auto object-contain" />
-                    <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal Logo" width={60} height={16} className="h-auto object-contain" />
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa Logo" width={40} height={13} className="h-auto object-contain" />
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal Logo" width={45} height={12} className="h-auto object-contain" />
                 </div>
 
                 <hr className="my-10 border-gray-700" />
