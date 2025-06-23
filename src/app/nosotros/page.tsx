@@ -19,6 +19,12 @@ const staggerContainer = {
   },
 };
 
+const valueCardHover = {
+    y: -10,
+    boxShadow: "0px 20px 40px -10px rgba(0, 0, 0, 0.15)",
+    transition: { type: 'spring', stiffness: 300 }
+};
+
 export default function NosotrosPage() {
   return (
     <div>
@@ -118,17 +124,17 @@ export default function NosotrosPage() {
             >
               <motion.h2 variants={fadeIn} className="text-3xl font-headline font-bold text-primary text-center mb-12">Nuestros Valores</motion.h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <motion.div variants={fadeIn} className="text-center p-6 bg-card rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <motion.div variants={fadeIn} whileHover={valueCardHover} className="text-center p-6 bg-card rounded-xl shadow-md transition-shadow duration-300">
                   <HeartHandshake className="mx-auto h-12 w-12 text-accent mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-2">Compromiso</h3>
                   <p className="text-sm text-muted-foreground">Dedicados a tu bienestar y a ofrecerte el mejor cuidado posible en cada visita.</p>
                 </motion.div>
-                <motion.div variants={fadeIn} className="text-center p-6 bg-card rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <motion.div variants={fadeIn} whileHover={valueCardHover} className="text-center p-6 bg-card rounded-xl shadow-md transition-shadow duration-300">
                   <Microscope className="mx-auto h-12 w-12 text-accent mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-2">Innovación</h3>
                   <p className="text-sm text-muted-foreground">Utilizamos la última tecnología y técnicas para tratamientos eficaces y cómodos.</p>
                 </motion.div>
-                <motion.div variants={fadeIn} className="text-center p-6 bg-card rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <motion.div variants={fadeIn} whileHover={valueCardHover} className="text-center p-6 bg-card rounded-xl shadow-md transition-shadow duration-300">
                   <Smile className="mx-auto h-12 w-12 text-accent mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-2">Confianza</h3>
                   <p className="text-sm text-muted-foreground">Construimos relaciones transparentes y duraderas con nuestros pacientes.</p>

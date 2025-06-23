@@ -11,6 +11,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
+      delayChildren: 0.3,
     },
   },
 };
@@ -21,8 +22,10 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 1.0,
-      ease: 'easeOut',
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+      duration: 1,
     },
   },
 };

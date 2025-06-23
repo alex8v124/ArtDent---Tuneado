@@ -12,6 +12,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.3,
+      delayChildren: 0.5,
     },
   },
 };
@@ -28,6 +29,10 @@ const itemVariants = {
   },
 };
 
+const cardHoverEffect = { y: -8, transition: { type: 'spring', stiffness: 300 } };
+const iconHoverEffect = { scale: 1.1, rotate: 5, transition: { type: 'spring', stiffness: 400 } };
+const buttonHoverEffect = { scale: 1.05, transition: { type: 'spring', stiffness: 400 } };
+const buttonTapEffect = { scale: 0.95 };
 
 export default function HomePage() {
   return (
@@ -64,12 +69,14 @@ export default function HomePage() {
             ¡Su camino hacia una sonrisa más saludable comienza aquí!
           </motion.p>
           <motion.div variants={itemVariants}>
-            <Button asChild className="mt-8 transition-transform duration-200 hover:scale-105 active:scale-95" size="lg">
-              <Link href="/reservar-cita">
-                <Phone className="mr-2 h-5 w-5" />
-                Reserva tu cita aquí
-              </Link>
-            </Button>
+            <motion.div whileHover={buttonHoverEffect} whileTap={buttonTapEffect}>
+                <Button asChild className="mt-8" size="lg">
+                  <Link href="/reservar-cita">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Reserva tu cita aquí
+                  </Link>
+                </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
@@ -84,40 +91,58 @@ export default function HomePage() {
         <motion.h2 variants={itemVariants} className="text-3xl font-headline font-bold text-center mb-10 text-primary">Explore Nuestras Secciones</motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.div variants={itemVariants}>
-            <Link href="/servicios" className="block group">
-              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center hover:-translate-y-2">
-                <Stethoscope className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Nuestros Servicios</h3>
-                <p className="text-muted-foreground mb-4 flex-grow">Descubra la gama completa de tratamientos dentales que ofrecemos para cuidar su salud bucal.</p>
-                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-200 transform hover:scale-105 active:scale-95">
-                  Ver Servicios
-                </Button>
-              </div>
-            </Link>
+            <motion.div whileHover={cardHoverEffect}>
+                <Link href="/servicios" className="block group">
+                  <div className="p-6 bg-card rounded-xl shadow-md h-full flex flex-col items-center text-center">
+                    <motion.div whileHover={iconHoverEffect}>
+                        <Stethoscope className="h-16 w-16 text-accent mb-4" />
+                    </motion.div>
+                    <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Nuestros Servicios</h3>
+                    <p className="text-muted-foreground mb-4 flex-grow">Descubra la gama completa de tratamientos dentales que ofrecemos para cuidar su salud bucal.</p>
+                    <motion.div whileHover={buttonHoverEffect} whileTap={buttonTapEffect} className="mt-auto">
+                        <Button variant="outline" className="group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-200">
+                        Ver Servicios
+                        </Button>
+                    </motion.div>
+                  </div>
+                </Link>
+            </motion.div>
           </motion.div>
           <motion.div variants={itemVariants}>
-            <Link href="/nosotros" className="block group">
-              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center hover:-translate-y-2">
-                <Users className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Sobre Nosotros</h3>
-                <p className="text-muted-foreground mb-4 flex-grow">Descubra toda la informacion sobre nuestra clinica, doctores y reseñas de pacientes.</p>
-                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-200 transform hover:scale-105 active:scale-95">
-                  Ver Nosotros
-                </Button>
-              </div>
-            </Link>
+            <motion.div whileHover={cardHoverEffect}>
+                <Link href="/nosotros" className="block group">
+                  <div className="p-6 bg-card rounded-xl shadow-md h-full flex flex-col items-center text-center">
+                    <motion.div whileHover={iconHoverEffect}>
+                        <Users className="h-16 w-16 text-accent mb-4" />
+                    </motion.div>
+                    <h3 className="text-2xl font-headline font-semibold text-primary mb-3">Sobre Nosotros</h3>
+                    <p className="text-muted-foreground mb-4 flex-grow">Descubra toda la informacion sobre nuestra clinica, doctores y reseñas de pacientes.</p>
+                    <motion.div whileHover={buttonHoverEffect} whileTap={buttonTapEffect} className="mt-auto">
+                        <Button variant="outline" className="group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-200">
+                        Ver Nosotros
+                        </Button>
+                    </motion.div>
+                  </div>
+                </Link>
+            </motion.div>
           </motion.div>
           <motion.div variants={itemVariants}>
-            <Link href="/faq" className="block group">
-              <div className="p-6 bg-card rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center hover:-translate-y-2">
-                <HelpCircle className="h-16 w-16 text-accent mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-headline font-semibold text-primary mb-3">FAQ</h3>
-                <p className="text-muted-foreground mb-4 flex-grow">Consulte cualquier duda o consulta en nuestra seccion de preguntas frecuentes.</p>
-                <Button variant="outline" className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-200 transform hover:scale-105 active:scale-95">
-                  Consultar FAQ
-                </Button>
-              </div>
-            </Link>
+            <motion.div whileHover={cardHoverEffect}>
+                <Link href="/faq" className="block group">
+                  <div className="p-6 bg-card rounded-xl shadow-md h-full flex flex-col items-center text-center">
+                    <motion.div whileHover={iconHoverEffect}>
+                        <HelpCircle className="h-16 w-16 text-accent mb-4" />
+                    </motion.div>
+                    <h3 className="text-2xl font-headline font-semibold text-primary mb-3">FAQ</h3>
+                    <p className="text-muted-foreground mb-4 flex-grow">Consulte cualquier duda o consulta en nuestra seccion de preguntas frecuentes.</p>
+                    <motion.div whileHover={buttonHoverEffect} whileTap={buttonTapEffect} className="mt-auto">
+                        <Button variant="outline" className="group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-200">
+                        Consultar FAQ
+                        </Button>
+                    </motion.div>
+                  </div>
+                </Link>
+            </motion.div>
           </motion.div>
         </div>
       </motion.section>
