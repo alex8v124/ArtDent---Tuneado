@@ -25,7 +25,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
     };
     
     const transitionProps = {
-        key: pathname,
         variants: variants,
         initial: "hidden",
         animate: "enter",
@@ -59,6 +58,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                     </header>
                     <AnimatePresence mode="wait" initial={false}>
                         <motion.main
+                            key={pathname}
                             {...transitionProps}
                             className="flex-1 p-6 overflow-y-auto"
                         >
@@ -83,6 +83,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
             <AppHeader />
             <AnimatePresence mode="wait" initial={false}>
                 <motion.main
+                    key={pathname}
                     {...transitionProps}
                     className="flex-grow flex flex-col"
                 >
