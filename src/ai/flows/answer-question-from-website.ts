@@ -106,7 +106,7 @@ const answerQuestionFromWebsiteFlow = ai.defineFlow(
   },
   async (input) => {
     const response = await prompt(input);
-    const toolCalls = response.toolCalls();
+    const toolCalls = response.toolCalls;
 
     if (toolCalls.length > 0) {
       // Asumimos una llamada a herramienta a la vez por simplicidad y la ejecutamos.
