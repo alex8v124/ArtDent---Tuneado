@@ -14,7 +14,7 @@ export default function NosotrosPage() {
       <section className="relative overflow-hidden text-center py-28 md:py-36 rounded-xl shadow-lg mb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://mxn.iseie.com/wp-content/uploads/2023/12/Diplomado-En-Gestion-de-Clinicas-Odontologicas.jpg"
+            src="https://soluciondental.pe/wp-content/uploads/2019/07/Staff-dentistas.jpg"
             alt="Fondo de la sección sobre nosotros"
             fill
             className="object-cover brightness-50"
